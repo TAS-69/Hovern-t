@@ -23,9 +23,9 @@ Hovern't displays each book's translated enchantment names and levels beside its
 | **1.21–1.21.11** | Supported in 1.2.0 | Supported in 1.2.0 |
 | **26.1, 26.1.1, 26.1.2, 26.2, 26.3** | Supported in 1.2.0 | Supported in 1.2.0 |
 
-1.20.1 remains the primary target. The 1.2.0 source adds all 23 stable Minecraft versions from 1.20.1 through 26.3, with a separate JAR for each loader and game version. See [version verification](https://github.com/TAS-69/Hovern-t/wiki/Version-Compatibility) for the exact tested loaders and checks.
+1.20.1 remains the primary target. Hovern't 1.2.0 supports all 23 stable Minecraft versions from 1.20.1 through 26.3, with a separate JAR for each loader and game version. See [version verification](https://github.com/TAS-69/Hovern-t/wiki/Version-Compatibility) for the exact tested loaders and checks.
 
-Published [1.0.0 and 1.1.0 releases](https://github.com/TAS-69/Hovern-t/releases) target Minecraft 1.20.1. Get 1.2.0 development packages from a successful [Build workflow](https://github.com/TAS-69/Hovern-t/actions/workflows/build.yml), or follow the [build guide](https://github.com/TAS-69/Hovern-t/wiki/Development).
+Download [Hovern't 1.2.0](https://github.com/TAS-69/Hovern-t/releases/tag/v1.2.0), or use the [download guide](https://github.com/TAS-69/Hovern-t/wiki/Downloads) to find the JAR for your game version and loader. All 46 packages include SHA-256 checksums. Earlier 1.0.0 and 1.1.0 releases remain available for Minecraft 1.20.1.
 
 Install the JAR matching your Minecraft version and loader on the **client**. The server does not need Hovern't. The Fabric build includes its resource-loading dependencies.
 
