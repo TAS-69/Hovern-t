@@ -4,35 +4,55 @@ buildscript {
         mavenCentral()
         gradlePluginPortal()
     }
-    dependencies { classpath 'net.neoforged:moddev-gradle:2.0.148' }
+    dependencies {
+        classpath rootProject.useNeoGradle ? 'net.neoforged.gradle:userdev:7.1.39' : 'net.neoforged:moddev-gradle:2.0.148'
+    }
 }
-apply plugin: rootProject.modern ? 'net.neoforged.moddev' : 'net.neoforged.moddev.legacyforge'
+apply plugin: rootProject.useNeoGradle ? 'net.neoforged.gradle.userdev' : (rootProject.legacyForge ? 'net.neoforged.moddev.legacyforge' : 'net.neoforged.moddev')
 apply from: rootProject.file('minecraft/adapter.gradle')
 base.archivesName = "hovernt-neoforge-${rootProject.targetMc}"
 
-if (rootProject.modern) {
-    neoForge {
-        enable {
-            version = rootProject.targets[rootProject.targetMc].neoForge
-            disableRecompilation = true
+if (rootProject.useNeoGradle) {
+    def transformer = plugins.findPlugin('net.neoforged.gradle.userdev').class.classLoader.loadClass('net.neoforged.gradle.common.runtime.tasks.JavaSourceTransformer')
+    tasks.withType(transformer).configureEach {
+        javaLauncher.set(javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) })
+    }
+    dependencies { implementation "net.neoforged:neoforge:${rootProject.target.neoForge}" }
+    runs {
+        client {
+            workingDirectory = rootProject.layout.projectDirectory.dir("build/runs/${rootProject.targetMc}/neoforge")
+            modSource sourceSets.main
+            arguments.addAll '--mixin.config', 'hovernt.mixins.json'
         }
+    }
+    def clientFiles = layout.buildDirectory.dir('neogradle-client')
+    def prepareClientFiles = tasks.register('prepareNeoGradleClientFiles', Sync) {
+        dependsOn tasks.named('classes')
+        from sourceSets.main.output
+        into clientFiles
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+    tasks.matching { it.name == 'runClient' }.configureEach {
+        dependsOn prepareClientFiles
+        doFirst {
+            environment 'MOD_CLASSES', "hovernt%%${clientFiles.get().asFile.absolutePath}"
+            classpath = classpath.minus(sourceSets.main.output)
+        }
+    }
+} else if (!rootProject.legacyForge) {
+    neoForge {
+        enable { version = rootProject.target.neoForge; disableRecompilation = true }
         runs { client { client() } }
         mods { hovernt { sourceSet sourceSets.main } }
     }
 } else {
     legacyForge {
-        enable {
-            neoForgeVersion = rootProject.targets[rootProject.targetMc].neoForge
-            disableRecompilation = true
-        }
+        enable { neoForgeVersion = rootProject.target.neoForge; disableRecompilation = true }
         runs { client { client() } }
         mods { hovernt { sourceSet sourceSets.main } }
     }
     dependencies { annotationProcessor 'org.spongepowered:mixin:0.8.5:processor' }
-    mixin {
-        add sourceSets.main, 'hovernt.refmap.json'
-        config 'hovernt.mixins.json'
-    }
+    mixin { add sourceSets.main, 'hovernt.refmap.json'; config 'hovernt.mixins.json' }
     def clientFiles = layout.buildDirectory.dir('legacy-client')
     def prepareClientFiles = tasks.register('prepareLegacyClientFiles', Sync) {
         dependsOn tasks.named('classes')
@@ -40,14 +60,6 @@ if (rootProject.modern) {
         from(layout.buildDirectory.dir('mixin')) { include 'hovernt.refmap.json' }
         into clientFiles
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    }
-    tasks.named('prepareClientRun') {
-        doLast {
-            def arguments = layout.buildDirectory.file('moddev/clientRunVmArgs.txt').get().asFile
-            arguments.setText(arguments.readLines('UTF-8').collect { line ->
-                line.contains("'") && !line.startsWith('"') ? '"' + line + '"' : line
-            }.join('\n') + '\n', 'UTF-8')
-        }
     }
     tasks.named('runClient') {
         dependsOn prepareClientFiles
@@ -57,14 +69,29 @@ if (rootProject.modern) {
         classpathProvider.setFrom(runtime.filter { !outputs.contains(it) })
     }
 }
+if (!rootProject.useNeoGradle) {
+    tasks.named('prepareClientRun') {
+        doLast {
+            def arguments = layout.buildDirectory.file('moddev/clientRunVmArgs.txt').get().asFile
+            arguments.setText(arguments.readLines('UTF-8').collect { line ->
+                line.contains("'") && !line.startsWith('"') ? '"' + line + '"' : line
+            }.join('\n') + '\n', 'UTF-8')
+        }
+    }
+}
 
 tasks.named('jar') {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest.attributes('MixinConfigs': 'hovernt.mixins.json')
 }
+
 tasks.named('processResources') {
-    from(rootProject.file(rootProject.modern ? 'neoforge/metadata/modern' : 'neoforge/metadata/legacy'))
-    inputs.properties(version: project.version, mc: rootProject.targetMc)
-    filesMatching('META-INF/*.toml') { expand version: project.version, mc: rootProject.targetMc }
+    def early = rootProject.targetMc in ['1.20.2', '1.20.3']
+    from(rootProject.file(rootProject.legacyForge ? 'neoforge/metadata/legacy' : early ? 'neoforge/metadata/early' : 'neoforge/metadata/modern')) {
+        if (rootProject.targetMc == '1.20.4') rename 'neoforge.mods.toml', 'mods.toml'
+    }
+    inputs.properties(version: project.version, mc: rootProject.targetMc, neo: rootProject.target.neoForge)
+    filesMatching('META-INF/*.toml') { expand version: project.version, mc: rootProject.targetMc, neo: rootProject.target.neoForge }
 }
 if (rootProject.hasProperty('compatibilityProfileFile')) apply from: rootProject.file('tests/compatibility/profile.gradle')
+if (rootProject.hasProperty('versionAcceptance')) apply from: rootProject.file('tests/versions/profile.gradle')

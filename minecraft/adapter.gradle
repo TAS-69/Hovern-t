@@ -1,33 +1,55 @@
 sourceSets.main.java.srcDir rootProject.file('minecraft/src/main/java')
-sourceSets.main.java.srcDir rootProject.file(rootProject.modern ? 'minecraft/src/registry/java' : 'minecraft/src/legacy/java')
+def target = rootProject.target
+sourceSets.main.java.srcDir rootProject.file("minecraft/src/${target.books == 'nbt' ? 'legacy' : target.books}/java")
 sourceSets.main.resources.srcDir rootProject.file('minecraft/src/main/resources')
+
+def fixtureMode = rootProject.hasProperty('acceptance') || rootProject.hasProperty('versionAcceptance')
+sourceSets.main.java.destinationDirectory.set(layout.buildDirectory.dir("classes/java/${fixtureMode ? 'acceptance' : 'main'}"))
+if (fixtureMode) sourceSets.main.output.resourcesDir = layout.buildDirectory.dir('resources/acceptance').get().asFile
+tasks.named('compileJava') {
+    options.incremental = false
+    inputs.property 'fixtureMode', fixtureMode
+    doFirst {
+        def output = destinationDirectory.get().asFile.canonicalFile.toPath()
+        def allowed = rootProject.file('build').canonicalFile.toPath()
+        if (!output.startsWith(allowed)) throw new GradleException('Compilation output must stay inside the build directory')
+        project.delete(output.toFile())
+    }
+}
 
 def generated = layout.buildDirectory.dir('generated/hovernt')
 sourceSets.main.java.srcDir generated
+
+def extraction = target.graphics == 'GuiGraphicsExtractor'
+def resourceType = target.identifier ? 'Identifier' : 'ResourceLocation'
+def resourceCreate = target.identifier ? 'Identifier.fromNamespaceAndPath("hovernt", "textures/gui/sidebar.png")' : (target.books == 'registry' ? 'ResourceLocation.fromNamespaceAndPath("hovernt", "textures/gui/sidebar.png")' : 'new ResourceLocation("hovernt", "textures/gui/sidebar.png")')
+def blitCall = target.blit == 'plain' ? 'graphics.blit(texture, x, y, width, height, u, v, sourceWidth, sourceHeight, textureWidth, textureHeight)' : (target.blit == 'rendertype' ? 'graphics.blit(net.minecraft.client.renderer.RenderType::guiTextured, texture, x, y, u, v, width, height, sourceWidth, sourceHeight, textureWidth, textureHeight)' : 'graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture, x, y, u, v, width, height, sourceWidth, sourceHeight, textureWidth, textureHeight)')
+
 tasks.register('generateCompat', Copy) {
     from rootProject.file('minecraft/templates')
     into generated
-    inputs.property 'modern', rootProject.modern
+    inputs.property 'target', target
     inputs.property 'compatibility', rootProject.hasProperty('compatibilityProfileFile')
-    expand graphics: rootProject.modern ? 'GuiGraphicsExtractor' : 'GuiGraphics',
-           labelsMethod: rootProject.modern ? 'extractLabels' : 'renderLabels',
-           bgMethod: rootProject.modern ? 'extractBackground' : 'renderBg',
-           contentsMethod: rootProject.modern ? 'extractContents' : 'render',
-           bgArguments: rootProject.modern ? 'int mouseX, int mouseY, float partialTick' : 'float partialTick, int mouseX, int mouseY',
-           resourceType: rootProject.modern ? 'Identifier' : 'ResourceLocation',
-           resourceCreate: rootProject.modern ? 'Identifier.fromNamespaceAndPath("hovernt", "textures/gui/sidebar.png")' : 'new ResourceLocation("hovernt", "textures/gui/sidebar.png")',
-           blitCall: rootProject.modern ? 'graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture, x, y, u, v, width, height, sourceWidth, sourceHeight, textureWidth, textureHeight)' : 'graphics.blit(texture, x, y, width, height, u, v, sourceWidth, sourceHeight, textureWidth, textureHeight)',
-           outsideArgs: rootProject.modern ? 'double mouseX, double mouseY, int left, int top' : 'double mouseX, double mouseY, int left, int top, int button',
-           outsideCall: rootProject.modern ? 'mouseX, mouseY, left, top' : 'mouseX, mouseY, left, top, button',
-           initArgs: rootProject.modern ? 'width, height' : 'minecraft, width, height',
-           observeLabel: rootProject.hasProperty('compatibilityProfileFile') ? 'dev.tas69.hovernt.compat.CompatibilityFixture.rendered(label);' : '',
-           drawText: rootProject.modern ? 'text' : 'drawString',
-           push: rootProject.modern ? 'pushMatrix' : 'pushPose',
-           pop: rootProject.modern ? 'popMatrix' : 'popPose',
-           translateArgs: rootProject.modern ? 'x, y' : 'x, y, 0',
-           scaleArgs: rootProject.modern ? 'SCALE, SCALE' : 'SCALE, SCALE, 1',
-           scissor: rootProject.modern ? '6, 0, panelWidth - 3, 20' : 'left + x + 6, top + y, left - 3, top + y + 20',
-           modPackage: rootProject.modern ? 'net.neoforged.fml.common' : 'net.minecraftforge.fml.common'
+    inputs.property 'versionAcceptance', rootProject.hasProperty('versionAcceptance')
+    expand graphics: target.graphics,
+           labelsMethod: extraction ? 'extractLabels' : 'renderLabels',
+           bgMethod: extraction ? 'extractBackground' : 'renderBg',
+           contentsMethod: extraction ? 'extractContents' : 'render',
+           bgArguments: extraction ? 'int mouseX, int mouseY, float partialTick' : 'float partialTick, int mouseX, int mouseY',
+           resourceType: resourceType,
+           resourceCreate: resourceCreate,
+           blitCall: blitCall,
+           outsideArgs: target.inputEvents ? 'double mouseX, double mouseY, int left, int top' : 'double mouseX, double mouseY, int left, int top, int button',
+           outsideCall: target.inputEvents ? 'mouseX, mouseY, left, top' : 'mouseX, mouseY, left, top, button',
+           initArgs: target.initWithoutMinecraft ? 'width, height' : 'minecraft, width, height',
+           observeLabel: rootProject.hasProperty('compatibilityProfileFile') ? 'dev.tas69.hovernt.compat.CompatibilityFixture.rendered(label);' : (rootProject.hasProperty('versionAcceptance') ? 'dev.tas69.hovernt.versions.VersionAcceptance.drawn(label, first + row, row, left, top, panelWidth);' : ''),
+           drawText: extraction ? 'text' : 'drawString',
+           push: target.matrix ? 'pushMatrix' : 'pushPose',
+           pop: target.matrix ? 'popMatrix' : 'popPose',
+           translateArgs: target.matrix ? 'x, y' : 'x, y, 0',
+           scaleArgs: target.matrix ? 'SCALE, SCALE' : 'SCALE, SCALE, 1',
+           scissor: target.matrix ? '6, 0, panelWidth - 3, 20' : 'left + x + 6, top + y, left - 3, top + y + 20',
+           modPackage: rootProject.legacyForge ? 'net.minecraftforge.fml.common' : 'net.neoforged.fml.common'
     if (project.name == 'fabric') exclude '**/HoverntNeoForge.java'
 }
 compileJava.dependsOn 'generateCompat'
@@ -35,37 +57,37 @@ tasks.named('sourcesJar') { dependsOn 'generateCompat' }
 
 sourceSets {
     smoke {
-        java.srcDir rootProject.file(rootProject.modern ? 'tests/src/registry/java' : 'tests/src/legacy/java')
+        java.srcDir rootProject.file("tests/src/${target.books == 'nbt' ? 'legacy' : target.books}/java")
         compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
         runtimeClasspath += output + compileClasspath + sourceSets.main.runtimeClasspath
     }
 }
 if (rootProject.hasProperty('acceptance')) {
-    if (rootProject.modern) throw new GradleException('The interactive acceptance fixture currently targets 1.20.1.')
+    if (rootProject.targetMc != '1.20.1') throw new GradleException('Use -PversionAcceptance for other Minecraft versions.')
     sourceSets.main.java.srcDir rootProject.file('tests/acceptance/java')
     sourceSets.main.resources.srcDir rootProject.file('tests/acceptance/resources')
     if (rootProject.hasProperty('compatibilityProfileFile')) sourceSets.main.java.srcDir rootProject.file('tests/compatibility/java')
 }
+
 tasks.named('processResources') {
-    from(rootProject.file('hovernt_logo.png')) {
-        into 'assets/hovernt'
-        rename { 'icon.png' }
-    }
+    from(rootProject.file('hovernt_logo.png')) { into 'assets/hovernt'; rename { 'icon.png' } }
     inputs.property 'acceptance', rootProject.hasProperty('acceptance')
-    inputs.property 'gameJava', rootProject.gameJava
+    inputs.property 'versionAcceptance', rootProject.hasProperty('versionAcceptance')
+    inputs.property 'target', target
     inputs.property 'compatibility', rootProject.hasProperty('compatibilityProfileFile')
-    inputs.property 'packFormat', rootProject.targets[rootProject.targetMc].packFormat
     doLast {
         def config = new groovy.json.JsonSlurper().parse(rootProject.file('minecraft/src/main/resources/hovernt.mixins.json'))
         config.compatibilityLevel = "JAVA_${rootProject.gameJava}"
-        if (rootProject.modern) config.remove('refmap')
+        if (!rootProject.needsRefmap(project.name)) config.remove('refmap')
         if (rootProject.hasProperty('acceptance')) config.client.addAll([rootProject.hasProperty('compatibilityProfileFile') ? 'CompatibilityClientMixin' : 'MinecraftSmokeMixin', 'ContainerSmokeMixin'])
+        if (rootProject.hasProperty('versionAcceptance')) config.client.addAll(['VersionAcceptanceMixin', 'VersionScreenAccessor', 'VersionMerchantAccessor', 'ContainerSmokeMixin'])
         new File(destinationDir, 'hovernt.mixins.json').text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(config))
-        def format = rootProject.targets[rootProject.targetMc].packFormat
-        def pack = rootProject.modern ? [description: "Hovern't resources", min_format: format, max_format: format] : [description: "Hovern't resources", pack_format: format]
+        def format = target.packFormat
+        def pack = format instanceof List ? [description: "Hovern't resources", min_format: format, max_format: format] : [description: "Hovern't resources", pack_format: format]
         new File(destinationDir, 'pack.mcmeta').text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([pack: pack]))
     }
 }
+
 tasks.register('smokeBooks', JavaExec) {
     dependsOn 'smokeClasses'
     classpath = sourceSets.smoke.runtimeClasspath

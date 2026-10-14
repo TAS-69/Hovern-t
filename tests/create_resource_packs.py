@@ -50,20 +50,27 @@ def texture(width, height, palette, sidebar=False):
     return pixels
 
 
-def main():
-    destination = Path(sys.argv[1])
+def create(destination, minecraft='1.20.1'):
+    target = json.loads((Path(__file__).resolve().parents[1] / 'versions.json').read_text(encoding='utf-8'))[minecraft]
+    pack_format = target['packFormat']
+    merchant_texture = 'villager2.png' if minecraft == '1.20.1' else 'villager.png'
     for name, palette, custom in [
         ('hovernt-test-auto', ((164, 194, 214), (227, 243, 252), (55, 79, 99), (115, 146, 165)), False),
         ('hovernt-test-custom', ((216, 193, 145), (255, 237, 194), (100, 76, 37), (174, 151, 106)), True),
     ]:
         pack = destination / name
         pack.mkdir(parents=True, exist_ok=True)
-        (pack / 'pack.mcmeta').write_text(json.dumps({'pack': {'pack_format': 15, 'description': "Hovern't resource-pack acceptance fixture"}}))
-        png(pack / 'assets/minecraft/textures/gui/container/villager2.png', 512, 256, texture(512, 256, palette))
+        metadata = {'description': "Hovern't resource-pack acceptance fixture"}
+        if isinstance(pack_format, list):
+            metadata.update(min_format=pack_format, max_format=pack_format)
+        else:
+            metadata['pack_format'] = pack_format
+        (pack / 'pack.mcmeta').write_text(json.dumps({'pack': metadata}))
+        png(pack / f'assets/minecraft/textures/gui/container/{merchant_texture}', 512, 256, texture(512, 256, palette))
         if custom:
             png(pack / 'assets/hovernt/textures/gui/sidebar.png', 194, 166, texture(194, 166, palette, True))
     print(f'Two resource-pack fixtures written to {destination}')
 
 
 if __name__ == '__main__':
-    main()
+    create(Path(sys.argv[1]), sys.argv[2] if len(sys.argv) > 2 else '1.20.1')

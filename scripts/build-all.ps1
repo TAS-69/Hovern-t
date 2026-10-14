@@ -1,21 +1,25 @@
 param(
     [string]$JavaHome = $env:JAVA_HOME,
-    [string[]]$Versions = @('1.20.1', '26.3')
+    [string[]]$Versions = @(),
+    [ValidateSet('fabric', 'neoforge')][string[]]$Platforms = @('fabric', 'neoforge')
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 Set-Location -LiteralPath $projectRoot
 if ($JavaHome) { $env:JAVA_HOME = $JavaHome }
 $matrix = Get-Content -LiteralPath 'versions.json' -Raw | ConvertFrom-Json
+if (!$Versions.Count) { $Versions = $matrix.PSObject.Properties.Name }
 $release = ((Get-Content -LiteralPath 'gradle.properties' | Where-Object { $_ -match '^version=' }) -replace '^version=', '').Trim()
 $destination = Join-Path $projectRoot "dist\$release"
 New-Item -ItemType Directory -Force -Path (Join-Path $destination 'logs') | Out-Null
 foreach ($minecraft in $Versions) {
     if ($matrix.PSObject.Properties.Name -notcontains $minecraft) { throw "Unsupported build target: $minecraft" }
-    $log = Join-Path $destination "logs\$minecraft.log"
-    Write-Host "Building Hovern't for $minecraft..."
-    & .\gradlew.bat "-Pmc=$minecraft" 'collectJars' '--console=plain' *> $log
-    if ($LASTEXITCODE -ne 0) { throw "Build failed; see $log" }
+    foreach ($platform in $Platforms) {
+        $log = Join-Path $destination "logs\$platform-$minecraft.log"
+        Write-Host "Building Hovern't for $minecraft ($platform)..."
+        & .\gradlew.bat "-Pmc=$minecraft" "-Pplatform=$platform" 'collectJars' '--console=plain' *> $log
+        if ($LASTEXITCODE -ne 0) { throw "Build failed; see $log" }
+    }
 }
 Get-ChildItem -LiteralPath $destination -Filter '*.jar' | Get-FileHash -Algorithm SHA256 | ForEach-Object {
     "$($_.Hash.ToLower())  $(Split-Path -Leaf $_.Path)"

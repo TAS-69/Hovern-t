@@ -22,6 +22,9 @@ public final class BookNamesSmoke {
         var frozen = net.minecraft.core.MappedRegistry.class.getDeclaredField("frozen");
         frozen.setAccessible(true);
         frozen.setBoolean(BuiltInRegistries.ENCHANTMENT, false);
+        var intrusive = net.minecraft.core.MappedRegistry.class.getDeclaredField("unregisteredIntrusiveHolders");
+        intrusive.setAccessible(true);
+        if (!SharedConstants.getCurrentVersion().getName().equals("1.20.1") && intrusive.get(BuiltInRegistries.ENCHANTMENT) == null) intrusive.set(BuiltInRegistries.ENCHANTMENT, new java.util.IdentityHashMap<>());
         var custom = Registry.register(BuiltInRegistries.ENCHANTMENT, new ResourceLocation("othermod", "moonwalking"),
             new Enchantment(Enchantment.Rarity.RARE, EnchantmentCategory.BREAKABLE, new EquipmentSlot[]{EquipmentSlot.FEET}) {});
         BuiltInRegistries.ENCHANTMENT.freeze();

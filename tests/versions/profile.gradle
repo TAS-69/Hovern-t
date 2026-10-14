@@ -1,0 +1,131 @@
+def target = rootProject.target
+def generatedFixture = layout.buildDirectory.dir('generated/versionAcceptance')
+sourceSets.main.java.srcDir generatedFixture
+
+def nbt = target.books == 'nbt'
+def registry = target.books == 'registry'
+def names = nbt ? ['SHARPNESS', 'UNBREAKING', 'BINDING_CURSE', 'MENDING', 'ALL_DAMAGE_PROTECTION', 'FALL_PROTECTION', 'BLOCK_FORTUNE', 'SILK_TOUCH', 'MOB_LOOTING'] : ['SHARPNESS', 'UNBREAKING', 'BINDING_CURSE', 'MENDING', 'PROTECTION', 'FEATHER_FALLING', 'FORTUNE', 'SILK_TOUCH', 'LOOTING']
+def values = names.collect { name -> registry ? "registry.getOrThrow(Enchantments.${name})" : nbt ? "Enchantments.${name}" : "net.minecraft.core.registries.BuiltInRegistries.ENCHANTMENT.wrapAsHolder(Enchantments.${name})" }.join(', ')
+def setup = registry ? '''java.lang.reflect.Method lookup;
+        try { lookup = net.minecraft.data.registries.VanillaRegistries.class.getMethod("createLookup"); }
+        catch (NoSuchMethodException ignored) { lookup = net.minecraft.data.registries.VanillaRegistries.class.getMethod("createWorldLookup"); }
+        var provider = (net.minecraft.core.HolderLookup.Provider) lookup.invoke(null);
+        var registry = provider.lookupOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT);
+        var bindTags = net.minecraft.core.Holder.Reference.class.getDeclaredMethod("bindTags", java.util.Collection.class);
+        bindTags.setAccessible(true);
+        for (var holder : registry.listElements().toList()) bindTags.invoke(holder, java.util.List.of());
+        bindTags.invoke(registry.getOrThrow(Enchantments.BINDING_CURSE), java.util.List.of(net.minecraft.tags.EnchantmentTags.CURSE));''' : ''
+if (rootProject.modern && project.name == 'fabric') setup += '\n        for (var pending : net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_INITIALIZERS.build(provider)) pending.apply();'
+if (rootProject.modern && project.name == 'neoforge') setup += '''
+        var initializerField = net.minecraft.core.component.DataComponentInitializers.class.getDeclaredField("initializers");
+        initializerField.setAccessible(true);
+        var initializers = (java.util.List<?>) initializerField.get(net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_INITIALIZERS);
+        var selected = new net.minecraft.core.component.DataComponentInitializers();
+        var itemKeys = List.of(Items.ENCHANTED_BOOK, Items.BOOK, Items.APPLE, Items.EMERALD).stream().map(item -> item.builtInRegistryHolder().key()).toList();
+        for (var entry : initializers) {
+            var keyMethod = entry.getClass().getDeclaredMethod("key");
+            keyMethod.setAccessible(true);
+            var key = (net.minecraft.resources.ResourceKey) keyMethod.invoke(entry);
+            if (!itemKeys.contains(key)) continue;
+            var valueMethod = entry.getClass().getDeclaredMethod("initializer");
+            valueMethod.setAccessible(true);
+            selected.add(key, (net.minecraft.core.component.DataComponentInitializers.Initializer) valueMethod.invoke(entry));
+        }
+        for (var pending : selected.build(provider)) pending.apply();'''
+def custom = registry ? '''var base = enchantments.get(0).value();
+        var custom = net.minecraft.core.Holder.direct(new Enchantment(Component.literal("Moonwalking with an extraordinarily long enchantment name"), base.definition(), base.exclusiveSet(), base.effects()));
+        var customBook = new ItemStack(Items.ENCHANTED_BOOK);
+        add(customBook, custom, 7);
+        entries.add(new Entry(customBook, List.of(name(custom, 7))));''' : (nbt ? '''var frozen = net.minecraft.core.MappedRegistry.class.getDeclaredField("frozen");
+        frozen.setAccessible(true);
+        var intrusive = net.minecraft.core.MappedRegistry.class.getDeclaredField("unregisteredIntrusiveHolders");
+        intrusive.setAccessible(true);
+        var enchantmentRegistry = net.minecraft.core.registries.BuiltInRegistries.ENCHANTMENT;
+        frozen.setBoolean(enchantmentRegistry, false);
+        if (intrusive.get(enchantmentRegistry) == null) intrusive.set(enchantmentRegistry, new java.util.IdentityHashMap<>());
+        Enchantment custom = net.minecraft.core.Registry.register(enchantmentRegistry, new net.minecraft.resources.ResourceLocation("hovernt_test", "moonwalking"), new TestEnchantment());
+        enchantmentRegistry.freeze();
+        var customBook = new ItemStack(Items.ENCHANTED_BOOK);
+        add(customBook, custom, 7);
+        entries.add(new Entry(customBook, List.of(name(custom, 7))));''' : '')
+if (nbt && rootProject.targetMc == '1.20.1') custom = custom.replace('if (intrusive.get(enchantmentRegistry) == null) intrusive.set(enchantmentRegistry, new java.util.IdentityHashMap<>());', '')
+if (rootProject.legacyForge && project.name == 'neoforge') custom = ''
+if (target.books == 'components') custom = '''var frozen = net.minecraft.core.MappedRegistry.class.getDeclaredField("frozen");
+        frozen.setAccessible(true);
+        var intrusive = net.minecraft.core.MappedRegistry.class.getDeclaredField("unregisteredIntrusiveHolders");
+        intrusive.setAccessible(true);
+        var enchantmentRegistry = net.minecraft.core.registries.BuiltInRegistries.ENCHANTMENT;
+        frozen.setBoolean(enchantmentRegistry, false);
+        if (intrusive.get(enchantmentRegistry) == null) intrusive.set(enchantmentRegistry, new java.util.IdentityHashMap<>());
+        var registered = net.minecraft.core.Registry.register(enchantmentRegistry, new net.minecraft.resources.ResourceLocation("hovernt_test", "moonwalking"), new TestEnchantment());
+        enchantmentRegistry.freeze();
+        var custom = enchantmentRegistry.wrapAsHolder(registered);
+        var customBook = new ItemStack(Items.ENCHANTED_BOOK);
+        add(customBook, custom, 7);
+        entries.add(new Entry(customBook, List.of(name(custom, 7))));'''
+def customClass = nbt ? '''private static final class TestEnchantment extends Enchantment {
+        private TestEnchantment() {
+            super(Enchantment.Rarity.RARE, net.minecraft.world.item.enchantment.EnchantmentCategory.BREAKABLE, new net.minecraft.world.entity.EquipmentSlot[]{net.minecraft.world.entity.EquipmentSlot.FEET});
+        }
+
+        @Override public Component getFullname(int level) {
+            return Component.literal("Moonwalking with an extraordinarily long enchantment name " + level).withStyle(net.minecraft.ChatFormatting.AQUA);
+        }
+    }''' : ''
+if (target.books == 'components') customClass = '''private static final class TestEnchantment extends Enchantment {
+        private TestEnchantment() {
+            super(Enchantment.definition(net.minecraft.tags.ItemTags.FOOT_ARMOR_ENCHANTABLE, 2, 7, Enchantment.constantCost(1), Enchantment.constantCost(2), 4, new net.minecraft.world.entity.EquipmentSlot[]{net.minecraft.world.entity.EquipmentSlot.FEET}));
+        }
+
+        @Override public Component getFullname(int level) {
+            return Component.literal("Moonwalking with an extraordinarily long enchantment name " + level).withStyle(net.minecraft.ChatFormatting.AQUA);
+        }
+    }'''
+def add = nbt ? 'net.minecraft.world.item.EnchantedBookItem.addEnchantment(stack, new net.minecraft.world.item.enchantment.EnchantmentInstance(enchantment, level));' : '''var mutable = new net.minecraft.world.item.enchantment.ItemEnchantments.Mutable(stack.getOrDefault(net.minecraft.core.component.DataComponents.STORED_ENCHANTMENTS, net.minecraft.world.item.enchantment.ItemEnchantments.EMPTY));
+        mutable.set(enchantment, level);
+        stack.set(net.minecraft.core.component.DataComponents.STORED_ENCHANTMENTS, mutable.toImmutable());'''
+if (target.books == 'components') add = add.replace('mutable.set(enchantment, level)', 'mutable.set(enchantment.value(), level)')
+def skin = rootProject.findProperty('versionSkin')
+if (skin != null && !(skin in ['auto', 'custom'])) throw new GradleException('Unknown version fixture skin')
+def suffix = skin == null ? '' : "-${skin}"
+def output = rootProject.file("build/versions/results/${project.name}-${rootProject.targetMc}${suffix}")
+def splitGui = rootProject.targetMc in ['26.2', '26.3']
+def screen = splitGui ? 'mc.gui.screen()' : 'mc.screen'
+def primaryButton = rootProject.targetMc == '26.3' ? 1 : 0
+def click = target.inputEvents ? "${screen}.mouseClicked(new net.minecraft.client.input.MouseButtonEvent(button.getX() + 8, button.getY() + 6, new net.minecraft.client.input.MouseButtonInfo(${primaryButton}, 0)), false)" : "${screen}.mouseClicked(button.getX() + 8, button.getY() + 6, 0)"
+def capture = target.asyncScreenshot ? '''Screenshot.takeScreenshot(mc.getMainRenderTarget(), image -> {
+            try (image) { image.writeToFile(OUTPUT.resolve(filename)); }
+            catch (Throwable error) { screenshotError = error; }
+        });''' : '''try (var image = Screenshot.takeScreenshot(mc.getMainRenderTarget())) { image.writeToFile(OUTPUT.resolve(filename)); }'''
+if (splitGui) capture = capture.replace('mc.getMainRenderTarget()', 'mc.gameRenderer.mainRenderTarget()')
+def fixtureVariables = [
+    bookImports: '', registrySetup: setup, enchantmentValues: values, customBook: custom, customClass: customClass,
+    enchantmentType: nbt ? 'Enchantment' : 'net.minecraft.core.Holder<Enchantment>',
+    fullName: nbt ? 'enchantment.getFullname(level)' : registry ? 'Enchantment.getFullname(enchantment, level)' : 'enchantment.value().getFullname(level)',
+    addEnchantment: add, outputDirectory: output.absolutePath.replace('\\', '/'),
+    minecraft: rootProject.targetMc, loader: project.name, resize: target.resize,
+    screen: screen, overlay: splitGui ? 'mc.gui.overlay()' : 'mc.getOverlay()',
+    setScreen: splitGui ? 'mc.gui.setScreen' : 'mc.setScreen',
+    inventory: target.inventoryEquipment ? 'new Inventory(null, new net.minecraft.world.entity.EntityEquipment())' : 'new Inventory(null)',
+    merchantOffer: nbt ? 'new MerchantOffer(new ItemStack(Items.EMERALD, 12), new ItemStack(Items.BOOK), book, 12, 1, 0.05F)' : 'new MerchantOffer(new net.minecraft.world.item.trading.ItemCost(Items.EMERALD, 12), java.util.Optional.of(new net.minecraft.world.item.trading.ItemCost(Items.BOOK)), book, 12, 1, 0.05F)',
+    scrollArguments: rootProject.targetMc == '1.20.1' ? '0, 0, -2' : '0, 0, 0, -2',
+    clickButton: click, captureScreenshot: capture
+]
+def generateFixture = tasks.register('generateVersionAcceptance', Copy) {
+    inputs.property 'variables', fixtureVariables
+    from(rootProject.file('tests/versions/templates')) { expand fixtureVariables }
+    from(rootProject.file('tests/acceptance/java')) { include '**/ContainerSmokeMixin.java' }
+    into generatedFixture
+}
+compileJava.dependsOn generateFixture
+tasks.named('sourcesJar') { dependsOn generateFixture }
+def runDirectory = rootProject.file("build/runs/${rootProject.targetMc}/${project.name}${suffix}")
+if (project.name == 'fabric') {
+    loom.runs.client { runDir = runDirectory.absolutePath }
+} else if (rootProject.useNeoGradle) {
+    runs.client { workingDirectory = runDirectory }
+} else if (rootProject.legacyForge) {
+    legacyForge.runs.client { gameDirectory = runDirectory }
+} else {
+    neoForge.runs.client { gameDirectory = runDirectory }
+}

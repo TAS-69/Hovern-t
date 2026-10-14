@@ -3,6 +3,7 @@ build/
 dist/
 run/
 **/run/
+**/runs/
 .idea/
 *.iml
 merchant-bytecode.txt

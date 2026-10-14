@@ -4,6 +4,10 @@ ext.targets = new JsonSlurper().parse(file('versions.json'))
 ext.targetMc = providers.gradleProperty('mc').get()
 if (!targets.containsKey(targetMc)) throw new GradleException("Unknown Minecraft version: $targetMc")
 ext.modern = targetMc.startsWith('26.')
+ext.target = targets[targetMc]
+ext.legacyForge = targetMc == '1.20.1'
+ext.useNeoGradle = targetMc.startsWith('1.20.') && !legacyForge
+ext.needsRefmap = { platform -> platform == 'fabric' ? !modern : legacyForge }
 ext.gameJava = targets[targetMc].java
 ext.fabricLoader = '0.19.5'
 if (providers.gradleProperty('compatibilityProfile').isPresent()) {
@@ -49,7 +53,7 @@ subprojects {
 
 tasks.register('collectJars', Copy) {
     doFirst {
-        if (rootProject.hasProperty('acceptance')) throw new GradleException('Build release files without -Pacceptance.')
+        if (rootProject.hasProperty('acceptance') || rootProject.hasProperty('versionAcceptance')) throw new GradleException('Build release files without acceptance fixtures.')
     }
     dependsOn subprojects.collect { it.tasks.named('build') }
     into rootProject.file("dist/${project.version}")

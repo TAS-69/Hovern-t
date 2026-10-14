@@ -19,12 +19,16 @@ Hovern't displays each book's translated enchantment names and levels beside its
 | Minecraft | Fabric | NeoForge |
 | --- | --- | --- |
 | **1.20.1** | Supported | Supported, legacy 47.1.106 |
-| **26.3** | Experimental | Experimental |
+| **1.20.2–1.20.6** | Supported in 1.2.0 | Supported in 1.2.0 |
+| **1.21–1.21.11** | Supported in 1.2.0 | Supported in 1.2.0 |
+| **26.1, 26.1.1, 26.1.2, 26.2, 26.3** | Supported in 1.2.0 | Supported in 1.2.0 |
 
-1.20.1 is the primary target. Intermediate versions are not available yet. The 26.3 builds compile and pass enchantment data checks; their in-game validation is still pending.
+1.20.1 remains the primary target. The 1.2.0 source adds all 23 stable Minecraft versions from 1.20.1 through 26.3, with a separate JAR for each loader and game version. See [version verification](https://github.com/TAS-69/Hovern-t/wiki/Version-Compatibility) for the exact tested loaders and checks.
+
+Published [1.0.0 and 1.1.0 releases](https://github.com/TAS-69/Hovern-t/releases) target Minecraft 1.20.1. Get 1.2.0 development packages from a successful [Build workflow](https://github.com/TAS-69/Hovern-t/actions/workflows/build.yml), or follow the [build guide](https://github.com/TAS-69/Hovern-t/wiki/Development).
 
 Install the JAR matching your Minecraft version and loader on the **client**. The server does not need Hovern't. The Fabric build includes its resource-loading dependencies.
 
-The [wiki](https://github.com/TAS-69/Hovern-t/wiki) contains [installation and troubleshooting](https://github.com/TAS-69/Hovern-t/wiki/Installation), [resource-pack support](https://github.com/TAS-69/Hovern-t/wiki/Resource-Packs), [compatibility verification](https://github.com/TAS-69/Hovern-t/wiki/Compatibility-Verification), and [building and testing](https://github.com/TAS-69/Hovern-t/wiki/Development).
+The [wiki](https://github.com/TAS-69/Hovern-t/wiki) contains [installation and troubleshooting](https://github.com/TAS-69/Hovern-t/wiki/Installation), [resource-pack support](https://github.com/TAS-69/Hovern-t/wiki/Resource-Packs), [enchantment-mod verification](https://github.com/TAS-69/Hovern-t/wiki/Compatibility-Verification), [version verification](https://github.com/TAS-69/Hovern-t/wiki/Version-Compatibility), and [building and testing](https://github.com/TAS-69/Hovern-t/wiki/Development).
 
 [MIT licensed](LICENSE). Embedded Fabric modules retain their own licenses.

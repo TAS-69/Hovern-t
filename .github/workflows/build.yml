@@ -4,11 +4,32 @@ on:
   pull_request:
   workflow_dispatch:
 jobs:
+  configure:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.targets.outputs.matrix }}
+      version: ${{ steps.targets.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: targets
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          targets = json.loads(Path('versions.json').read_text())
+          matrix = {'include': [{'minecraft': mc, 'loader': loader} for mc in targets for loader in ['fabric', 'neoforge']]}
+          version = next(line.split('=', 1)[1] for line in Path('gradle.properties').read_text().splitlines() if line.startswith('version='))
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              print('matrix=' + json.dumps(matrix), file=output)
+              print('version=' + version, file=output)
+          PY
   build:
+    needs: configure
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        minecraft: ['1.20.1', '26.3']
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.configure.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -16,9 +37,13 @@ jobs:
           distribution: temurin
           java-version: '25'
       - uses: gradle/actions/setup-gradle@v4
-      - run: bash ./gradlew -Pmc=${{ matrix.minecraft }} collectJars --console=plain
-      - run: python3 tests/verify_jars.py dist/1.0.0
+      - run: bash ./gradlew -Pmc=${{ matrix.minecraft }} -Pplatform=${{ matrix.loader }} collectJars --console=plain
+      - run: python3 tests/verify_jars.py dist/${{ needs.configure.outputs.version }}
+      - run: sha256sum *.jar > SHA256SUMS.txt
+        working-directory: dist/${{ needs.configure.outputs.version }}
       - uses: actions/upload-artifact@v4
         with:
-          name: hovernt-${{ matrix.minecraft }}
-          path: dist/1.0.0/*.jar
+          name: hovernt-${{ matrix.loader }}-${{ matrix.minecraft }}
+          path: |
+            dist/${{ needs.configure.outputs.version }}/*.jar
+            dist/${{ needs.configure.outputs.version }}/SHA256SUMS.txt

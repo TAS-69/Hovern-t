@@ -15,7 +15,9 @@ dependencies {
     if (!rootProject.modern) mappings loom.officialMojangMappings()
     add(rootProject.modern ? 'implementation' : 'modImplementation', "net.fabricmc:fabric-loader:${rootProject.fabricLoader}")
     def target = rootProject.targets[rootProject.targetMc]
-    ["fabric-api-base:${target.baseVersion}", "${target.resourceLoader}:${target.resourceVersion}"].each { module ->
+    def modules = ["fabric-api-base:${target.baseVersion}", "${target.resourceLoader}:${target.resourceVersion}"]
+    if (target.resourceLoaderExtra) modules.add("fabric-resource-loader-v1:${target.resourceLoaderExtra}")
+    modules.each { module ->
         def dependency = "net.fabricmc.fabric-api:$module"
         add(rootProject.modern ? 'implementation' : 'modImplementation', dependency)
         include dependency
@@ -38,3 +40,4 @@ processResources {
 }
 tasks.named('check') { dependsOn tasks.named('smokeBooks') }
 if (rootProject.hasProperty('compatibilityProfileFile')) apply from: rootProject.file('tests/compatibility/profile.gradle')
+if (rootProject.hasProperty('versionAcceptance')) apply from: rootProject.file('tests/versions/profile.gradle')
