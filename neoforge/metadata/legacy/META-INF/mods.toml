@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+clientSideOnly=true
+issueTrackerURL="https://github.com/TAS-69/Hovern-t/issues"
+
+[[mods]]
+modId="hovernt"
+version="${version}"
+displayName="Hovern't"
+logoFile="assets/hovernt/icon.png"
+displayURL="https://github.com/TAS-69/Hovern-t"
+authors="TAS-69"
+displayTest="IGNORE_ALL_VERSION"
+description='''Read enchanted-book trades without hovering. Your wrist has suffered enough.'''
+
+[[dependencies.hovernt]]
+modId="minecraft"
+mandatory=true
+versionRange="[${mc}]"
+ordering="NONE"
+side="CLIENT"

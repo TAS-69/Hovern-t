@@ -1,0 +1,1 @@
+Public documentation, including GitHub releases, uses TAS-69's first-person voice, professional wording, and occasional subtle humour. Keep code free of explanatory comments. Avoid third-person references to ownership and references to how the writing was produced.

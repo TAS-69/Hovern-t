@@ -1,0 +1,13 @@
+.gradle/
+build/
+dist/
+run/
+**/run/
+.idea/
+*.iml
+merchant-bytecode.txt
+*.log
+**/logs/
+**/crash-reports/
+__pycache__/
+*.pyc

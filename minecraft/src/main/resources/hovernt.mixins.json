@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.tas69.hovernt.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "hovernt.refmap.json",
+  "client": ["MerchantScreenMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

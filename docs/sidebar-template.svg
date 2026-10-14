@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="194" height="166" viewBox="0 0 194 166" shape-rendering="crispEdges">
+  <title>Hovern't resource-pack sidebar template</title>
+  <path fill="#373737" d="M3 0h191v166H3v-1H1v-2H0V3h1V1h2Z"/>
+  <path fill="#fff" d="M4 1h190v3H4v158H1V4h1V2h2Z"/>
+  <path fill="#555" d="M4 162h190v3H4Z"/>
+  <path fill="#c6c6c6" d="M4 4h190v158H4Z"/>
+</svg>

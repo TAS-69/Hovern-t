@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "hovernt",
+  "version": "${version}",
+  "name": "Hovern't",
+  "icon": "assets/hovernt/icon.png",
+  "description": "Read enchanted-book trades without hovering. Your wrist has suffered enough.",
+  "authors": ["TAS-69"],
+  "contact": {
+    "homepage": "https://github.com/TAS-69/Hovern-t",
+    "sources": "https://github.com/TAS-69/Hovern-t",
+    "issues": "https://github.com/TAS-69/Hovern-t/issues"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "mixins": ["hovernt.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "${resourceLoader}": "*",
+    "minecraft": "${mc}",
+    "java": ">=${java}"
+  }
+}

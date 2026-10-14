@@ -1,0 +1,50 @@
+def profile = rootProject.compatibilityProfile
+if (project.name != profile.loader) throw new GradleException('Select only the loader belonging to the compatibility profile')
+def modFiles = profile.mods.collectMany { [it.path] + (it.nestedPaths ?: []) }.collect { rootProject.file(it) }.unique()
+if (project.name == 'fabric') {
+    def metadata = [:]
+    modFiles.each { file ->
+        new java.util.zip.ZipFile(file).withCloseable { jar ->
+            def entry = jar.getEntry('fabric.mod.json')
+            if (entry != null) metadata[file] = new groovy.json.JsonSlurper().parse(jar.getInputStream(entry))
+        }
+    }
+    def ids = metadata.values().collect { it.id }.toSet()
+    modFiles = modFiles.findAll { file -> !(metadata[file]?.provides ?: []).any { ids.contains(it) } }
+}
+if (project.name == 'fabric') {
+    dependencies { modRuntimeOnly files(modFiles) }
+} else {
+    def repository = rootProject.file('build/compatibility/repository')
+    repository.mkdirs()
+    repositories.exclusiveContent {
+        forRepository { project.repositories.flatDir { name = 'compatibilityMods'; dirs repository } }
+        filter { includeGroup 'dev.tas69.hovernt.compat' }
+    }
+    profile.mods.each { mod ->
+        def artifact = "compat-${mod.sha512.take(16)}"
+        def destination = new File(repository, "${artifact}-1.jar")
+        if (!destination.exists()) java.nio.file.Files.copy(rootProject.file(mod.path).toPath(), destination.toPath())
+        dependencies.add('modRuntimeOnly', "dev.tas69.hovernt.compat:${artifact}:1")
+    }
+}
+def runDirectory = rootProject.file("build/compatibility/runtime/${profile.id}")
+def resultDirectory = rootProject.file("build/compatibility/results/${profile.id}")
+def scanLibraries = tasks.register('prepareCompatibilityScanLibraries', Copy) {
+    from profile.mods.collect { rootProject.file(it.path) }
+    into new File(runDirectory, 'libs')
+}
+tasks.named('runClient') { dependsOn scanLibraries }
+if (project.name == 'fabric') {
+    loom.runs.client {
+        runDir = runDirectory.absolutePath
+        property 'hovernt.compat.profile', rootProject.compatibilityProfileFile.absolutePath
+        property 'hovernt.compat.output', resultDirectory.absolutePath
+    }
+} else {
+    legacyForge.runs.client {
+        gameDirectory = runDirectory
+        systemProperty 'hovernt.compat.profile', rootProject.compatibilityProfileFile.absolutePath
+        systemProperty 'hovernt.compat.output', resultDirectory.absolutePath
+    }
+}

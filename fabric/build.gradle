@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.fabricmc.net/' }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies { classpath 'net.fabricmc:fabric-loom:1.17.21' }
+}
+apply plugin: rootProject.modern ? 'net.fabricmc.fabric-loom' : 'net.fabricmc.fabric-loom-remap'
+apply from: rootProject.file('minecraft/adapter.gradle')
+base.archivesName = "hovernt-fabric-${rootProject.targetMc}"
+
+dependencies {
+    minecraft "com.mojang:minecraft:${rootProject.targetMc}"
+    if (!rootProject.modern) mappings loom.officialMojangMappings()
+    add(rootProject.modern ? 'implementation' : 'modImplementation', "net.fabricmc:fabric-loader:${rootProject.fabricLoader}")
+    def target = rootProject.targets[rootProject.targetMc]
+    ["fabric-api-base:${target.baseVersion}", "${target.resourceLoader}:${target.resourceVersion}"].each { module ->
+        def dependency = "net.fabricmc.fabric-api:$module"
+        add(rootProject.modern ? 'implementation' : 'modImplementation', dependency)
+        include dependency
+    }
+}
+if (!rootProject.modern) {
+    loom.mixin {
+        useLegacyMixinAp = true
+        defaultRefmapName = 'hovernt.refmap.json'
+    }
+}
+loom.runs.client {
+    property 'mixin.debug.export', 'true'
+}
+processResources {
+    inputs.properties(version: project.version, mc: rootProject.targetMc, java: rootProject.gameJava, resourceLoader: rootProject.targets[rootProject.targetMc].resourceLoader)
+    filesMatching('fabric.mod.json') {
+        expand version: project.version, mc: rootProject.targetMc, java: rootProject.gameJava, resourceLoader: rootProject.targets[rootProject.targetMc].resourceLoader
+    }
+}
+tasks.named('check') { dependsOn tasks.named('smokeBooks') }
+if (rootProject.hasProperty('compatibilityProfileFile')) apply from: rootProject.file('tests/compatibility/profile.gradle')

@@ -1,0 +1,61 @@
+import groovy.json.JsonSlurper
+
+ext.targets = new JsonSlurper().parse(file('versions.json'))
+ext.targetMc = providers.gradleProperty('mc').get()
+if (!targets.containsKey(targetMc)) throw new GradleException("Unknown Minecraft version: $targetMc")
+ext.modern = targetMc.startsWith('26.')
+ext.gameJava = targets[targetMc].java
+ext.fabricLoader = '0.19.5'
+if (providers.gradleProperty('compatibilityProfile').isPresent()) {
+    def id = providers.gradleProperty('compatibilityProfile').get()
+    if (!(id ==~ /[a-z0-9-]+/)) throw new GradleException('Invalid compatibility profile name')
+    if (targetMc != '1.20.1' || !hasProperty('acceptance')) throw new GradleException('Compatibility profiles require 1.20.1 and -Pacceptance')
+    ext.compatibilityProfile = new JsonSlurper().parse(file("build/compatibility/profiles/${id}.json"))
+    ext.compatibilityProfileFile = file("build/compatibility/profiles/${id}.json")
+}
+
+allprojects {
+    group = rootProject.group
+    version = rootProject.version
+    repositories {
+        mavenCentral()
+        maven { url = 'https://maven.fabricmc.net/' }
+        maven { url = 'https://maven.neoforged.net/releases' }
+    }
+}
+subprojects {
+    apply plugin: 'java-library'
+    layout.buildDirectory = rootProject.file("build/targets/${rootProject.targetMc}/${project.name}")
+    if (rootProject.hasProperty('compatibilityProfileFile')) {
+        layout.buildDirectory = rootProject.file("build/compatibility/builds/${rootProject.compatibilityProfile.id}/${project.name}")
+    }
+    java {
+        toolchain.languageVersion = JavaLanguageVersion.of(rootProject.gameJava)
+        withSourcesJar()
+    }
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+        options.release = rootProject.gameJava
+    }
+    tasks.withType(JavaExec).configureEach {
+        javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(rootProject.gameJava) }
+    }
+    tasks.withType(Jar).configureEach {
+        preserveFileTimestamps = false
+        reproducibleFileOrder = true
+        from(rootProject.file('LICENSE'))
+    }
+}
+
+tasks.register('collectJars', Copy) {
+    doFirst {
+        if (rootProject.hasProperty('acceptance')) throw new GradleException('Build release files without -Pacceptance.')
+    }
+    dependsOn subprojects.collect { it.tasks.named('build') }
+    into rootProject.file("dist/${project.version}")
+    subprojects.each { p ->
+        from(p.layout.buildDirectory.dir('libs')) {
+            include "hovernt-${p.name}-${targetMc}-${project.version}.jar"
+        }
+    }
+}

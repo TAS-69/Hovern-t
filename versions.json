@@ -1,0 +1,4 @@
+{
+  "1.20.1": {"java":17,"packFormat":15,"neoForge":"1.20.1-47.1.106","resourceLoader":"fabric-resource-loader-v0","resourceVersion":"0.11.12+fb82e9d777","baseVersion":"0.4.32+1802ada577"},
+  "26.3": {"java":25,"packFormat":[97,1],"neoForge":"26.3.0.76","resourceLoader":"fabric-resource-loader-v1","resourceVersion":"3.0.4+ba0d6c0d5d","baseVersion":"2.0.6+fcdff87f5d"}
+}

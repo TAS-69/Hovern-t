@@ -1,0 +1,1213 @@
+{
+  "minecraft": "1.20.1",
+  "fabricLoader": "0.19.5",
+  "neoForge": "47.1.106",
+  "profiles": [
+    {
+      "id": "fabric-enchancement",
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "project": "enchancement",
+      "title": "Enchancement",
+      "version": "1.20-26",
+      "modHashes": [
+        "4939f0867ffa78cb3cfba596ffc22847f405e0bf7ee4b556b05259cc69f152854f78b6065b4bff80b5b31d09cba91256ea91dd32cf4697532f771684cd9f4dcc",
+        "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca",
+        "75d85a093487ddd8c405cf7f8ce83cb3418ff7c2d3e6bf5aa38554d8bcf0ea45c87c88f3463a924e9cc8b5931d8b64f7be173efbd48ea7a0c150db95e1408f51"
+      ]
+    },
+    {
+      "id": "fabric-enchantedshulkers",
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "project": "enchantedshulkers",
+      "title": "EnchantedShulkers",
+      "version": "1.2.4+1.20.1",
+      "modHashes": [
+        "cc88a257ae31076323026548e82c5cd8ff0ece6c42e6ed29057aea4bf1b29043324134399d525e7cae51f961c27068644567717b0c8785e6d510c594241dbb9a",
+        "7fb475c4a7e7bdf8d0aca4b5798a58a354c51443d5b1fbde3e8cf34dfbf7191ef4238b5f07d08ec9490ec180b371624523326c3ad45d4ed2b2be541de9407e5d",
+        "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca"
+      ]
+    },
+    {
+      "id": "fabric-enchantments-plus",
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "project": "enchantments-plus",
+      "title": "Enchantments-Plus",
+      "version": "1.2.2+1.20.1",
+      "modHashes": [
+        "6735e4078ccef58a631ccf08f70243723d079e25329341817a9863f3edd7c689f05123802e77a1a57fa795f4198aaf72e19cdf7aee6432873d54043890585ba2",
+        "2da85c071c854223cc30c8e46794391b77e53f28ecdbbde59dc83b3dbbdfc74be9e68da9ed464e7f98b4361033899ba4f681ebff1f35edc2c60e599a59796f1c",
+        "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca"
+      ]
+    },
+    {
+      "id": "fabric-extra-enchantments-and-curses",
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "project": "extra-enchantments-and-curses",
+      "title": "Extra Enchantments and Curses",
+      "version": "1.8.1",
+      "modHashes": [
+        "f7cccb3063d38b1c972bb2b54ef5d42efef4a1e9ee64c6876f124e355e235d7287b00a062bb3161aad16b964624afd8a3ede90a1dda8dd74d0e2b7f0acb73dfe",
+        "807e4a3daf493e92c5ff0d5657efbba2a4e0cd2a9b753f2d6f153422629415f189345842a6dd258c87d4c02ebf38950a517bcd8a7ed929af6ed6485ae46cf77e",
+        "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca"
+      ]
+    },
+    {
+      "id": "fabric-fabric-enchantments",
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "project": "fabric-enchantments",
+      "title": "Fabric Enchantments",
+      "version": "1.0.0",
+      "modHashes": [
+        "6c5288ebbedb1a74c951c2297a2dbe4b3cbc11f5aec6992a4c0e3fc87e443fafb1e374aef6118bdc6d60ae9701525d64d05a304c3d4bfcf330bb182670475288",
+        "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca"
+      ]
+    },
+    {
+      "id": "fabric-majruszs-enchantments",
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "project": "majruszs-enchantments",
+      "title": "Majrusz's Enchantments",
+      "version": "1.10.8",
+      "modHashes": [
+        "6b45cac2f6afc7d3d6676842ec74f3cdd4eb8312003dead3656a772d8a3cecc65785737cafe46a7efcce11865d59634c3f5a80809779e59e9a1a4b4f1b49bc17",
+        "60910be0960c1e384e1f68f4e605c167ac6d23fe7b172a9f9750660f8f94974304cc547de2b4773ea6595ba45932caa619334ab0b4df6ced21f045e6d766180d",
+        "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca"
+      ]
+    },
+    {
+      "id": "fabric-soulbound-enchantment",
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "project": "soulbound-enchantment",
+      "title": "Soulbound Enchantment",
+      "version": "1.0.0+1.20.1",
+      "modHashes": [
+        "0ca1979e2b04e2257aba78122416077368bc61b45119821f61a7a8423b0310ce7f9da0754ff5cb700e2c8deee74f9a59dca21c3d3fbcd798bec0e889dda7390e",
+        "2da85c071c854223cc30c8e46794391b77e53f28ecdbbde59dc83b3dbbdfc74be9e68da9ed464e7f98b4361033899ba4f681ebff1f35edc2c60e599a59796f1c",
+        "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca"
+      ]
+    },
+    {
+      "id": "fabric-vein-mining",
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "project": "vein-mining",
+      "title": "Vein Mining",
+      "version": "1.5.0+1.20.1",
+      "modHashes": [
+        "f6eeb5d5f9cea999f191b99cbff793a2df60f6cb043fef006a30ab1f8661be35e871c7e558aa698d654995e21f2b9a1c3f889eb6a5d7fe1c8595ccb4b9fc2c04",
+        "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca"
+      ]
+    },
+    {
+      "id": "fabric-zenith-renewed",
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "project": "zenith-renewed",
+      "title": "Zenith Renewed",
+      "version": "2.0.2",
+      "modHashes": [
+        "8eb0a0b5ff184ea120b544e57a030a87fdbe0b018ed27e7246da2b3e7f5ca9e518bcbbadc93350435b0133c65e8c55784d928f2fffa15e33e1b7a5f71954a9fe",
+        "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca",
+        "20eceded16de6936164831f4cf98b464524c5756f64cf4da1dcc1823b21cb7dd5d48cfbd7dc456a0758f38de3dbdd6d03046c8f36ed667ff5574bf54f12353f0",
+        "b287e86e71865d7bb0caa2b7722c8940f51e72fd2a534e22c22c04dc9536e53137bacaada24f3cfd8a5133d3135bc6b5b235d4a42fb7e84924ca560df00d5c1e",
+        "d29189798f229b232e554e4060e85aaf0a4d23981860d1548d6e1cd7298e2423a6bbadb78cc5dbfb01e21db0f9e41e391fb60dae9f9dcc23f16aca00bea1350c"
+      ]
+    },
+    {
+      "id": "neoforge-allurement",
+      "minecraft": "1.20.1",
+      "loader": "neoforge",
+      "project": "allurement",
+      "title": "Allurement",
+      "version": "4.0.0",
+      "modHashes": [
+        "20d244fcf81b232d9cf917d2ec303e324cdb8a551835fabad8dec549042ad784996cc1caa159e1802a6746eb96371a88864deeed8a0dcc539df5d36978904f13",
+        "124ec4edbb11f26a49aaa7a60cafeddefef64a0e3641dc6957656f7237ae1f2af848359ffb9c043d20703c35051067cbb285ecf75114ead1688a979b4d302f70"
+      ]
+    },
+    {
+      "id": "neoforge-apotheosis",
+      "minecraft": "1.20.1",
+      "loader": "neoforge",
+      "project": "apotheosis",
+      "title": "Apotheosis",
+      "version": "7.4.8",
+      "modHashes": [
+        "40709a506f96e407d0d34f07e38916bd7238b2b56d54e806063fcc99ccc9fd97d8913afa57c5edfe58f71e2ea5f67c07510a8b5130cb8d9e16e7142b18e4a96c",
+        "15aedda4efcc553d5e3c83aa867b62554bc2fab298b43f55ed324e10507a3605f0ec2c59c01476e6d80b2a49275ef080142e43a6e663f9463b62f520960fc203",
+        "d0b7a9dac9e0d34cdec49afd9a3c9f5382dcfac69b18a7c7a600d4537cf2653368a00333389c8e7c9fdacf952e0e4f921464309e257a3dd992f1ba26f4ce6836",
+        "c23990465e26336f476c3b05a897bcf0c8660ae7338756b325f6bf81d0dee34b609474c62293f394acac818637ab03f92c776d104c8b8e86f3786395f5c4d623"
+      ]
+    },
+    {
+      "id": "neoforge-enchanted-arsenal",
+      "minecraft": "1.20.1",
+      "loader": "neoforge",
+      "project": "enchanted-arsenal",
+      "title": "[TACZ]Enchanted Arsenal",
+      "version": "1.0.1",
+      "modHashes": [
+        "fb96c303eb59112af87bc1e2b4eeea5b4c5def0752ef8f3c64127c6f55e34532ed9380f1e94870e3f7b330e6f092ac93dfcd7a62e1fb8dfe904df0348492da59",
+        "fa8b4bd4a7a0835092bccbb28a18461642d4e7a2f6fdb762ac4978d4dbc31d1f0f61c685343a61607dce3d1cd89f4314b61a9f8811960b9d0604692ac3fff96d"
+      ]
+    },
+    {
+      "id": "neoforge-ensorcellation",
+      "minecraft": "1.20.1",
+      "loader": "neoforge",
+      "project": "ensorcellation",
+      "title": "Ensorcellation",
+      "version": "5.0.2",
+      "modHashes": [
+        "83548db81b6099fa0ebe51bea556ed04d0a7c72f320360703235206fffb0c2616ee182146bd12ec63229e40007a35dc4b910ddf714d9461858a8811843ca8fb6",
+        "5a62bc6dcaaf3cf77234f3e0559eb6d2ec7db05b39feeba56dbdd46f3378aec6d97bd2078e220fe33891384abc40e1a705affe9d77ae4e35cf60185e07c11a73"
+      ]
+    },
+    {
+      "id": "neoforge-extra-enchantments-and-curses",
+      "minecraft": "1.20.1",
+      "loader": "neoforge",
+      "project": "extra-enchantments-and-curses",
+      "title": "Extra Enchantments and Curses",
+      "version": "1.7.2",
+      "modHashes": [
+        "2a47b10d911a614661d9cb5503b126689dde27703682f80b3745e507db2cdeb30be25e2499026857444224a39b226fd7643a9fba34773b8c882ac4f2f75cef7e"
+      ]
+    },
+    {
+      "id": "neoforge-majruszs-enchantments",
+      "minecraft": "1.20.1",
+      "loader": "neoforge",
+      "project": "majruszs-enchantments",
+      "title": "Majrusz's Enchantments",
+      "version": "1.10.8",
+      "modHashes": [
+        "f9d1bea88116508e97c9dca01fd91b9285220345291c6481d203a3fc3ea2f41ebba9a040315781c4b1c42718a16a53624cff8cf387fcd2fbf6e7c0c6fb8fceb8",
+        "fd2bc331ebd9915465f8aa0dca64241c3523d30c8f3178a5498f35aa8429c588e064b62ddd91a83da511ad4c6b302681b04974fb188132a13f24142d47738987"
+      ]
+    },
+    {
+      "id": "neoforge-soulbound-enchantment",
+      "minecraft": "1.20.1",
+      "loader": "neoforge",
+      "project": "soulbound-enchantment",
+      "title": "Soulbound Enchantment",
+      "version": "1.0.0",
+      "modHashes": [
+        "ed68d4da10d7ecd8243559a5dc716de6e2b4d5039904a21b099eb7e567ef250d22263cb3f9d4d43489a2a31a127acf95c53c73b2e52bfacd2055d96446711d3e"
+      ]
+    },
+    {
+      "id": "neoforge-tacz-bullet-proof-enchant-add-on",
+      "minecraft": "1.20.1",
+      "loader": "neoforge",
+      "project": "tacz-bullet-proof-enchant-add-on",
+      "title": "TACZ Bullet Proof Enchant Add-on",
+      "version": "2.0-1.20.1",
+      "modHashes": [
+        "361a50a622994d8adff1d2aa9e9282e31f037da46563deac9127ca02e3c9d7c8f1b45d36566e37752846d54e6da5a84f3050bb7bd5e240bfa39149d4cf663482"
+      ]
+    },
+    {
+      "id": "neoforge-vein-mining",
+      "minecraft": "1.20.1",
+      "loader": "neoforge",
+      "project": "vein-mining",
+      "title": "Vein Mining",
+      "version": "1.5.0+1.20.1",
+      "modHashes": [
+        "6a5423885a35b2c28561f28bd12e3f03b52c296bc1f4d050cd03a4b5485e0cdc90b3ac8bff0880353436af061f16a7342dc197a95ee28e88cc76c770341151fa"
+      ]
+    }
+  ],
+  "mods": {
+    "4939f0867ffa78cb3cfba596ffc22847f405e0bf7ee4b556b05259cc69f152854f78b6065b4bff80b5b31d09cba91256ea91dd32cf4697532f771684cd9f4dcc": {
+      "project": "enchancement",
+      "projectId": "6hN1V6wJ",
+      "title": "Enchancement",
+      "downloads": 571279,
+      "versionId": "mGY2pNFa",
+      "version": "1.20-26",
+      "published": "2024-05-18T15:32:09.459522Z",
+      "source": "https://github.com/MoriyaShiine/enchancement",
+      "path": "build/compatibility/downloads/mGY2pNFa/enchancement-1.20-26.jar",
+      "filename": "enchancement-1.20-26.jar",
+      "url": "https://cdn.modrinth.com/data/6hN1V6wJ/versions/mGY2pNFa/enchancement-1.20-26.jar",
+      "sha512": "4939f0867ffa78cb3cfba596ffc22847f405e0bf7ee4b556b05259cc69f152854f78b6065b4bff80b5b31d09cba91256ea91dd32cf4697532f771684cd9f4dcc",
+      "modIds": [
+        "enchancement"
+      ],
+      "requirements": {
+        "fabricloader": "*",
+        "minecraft": "~1.20.1",
+        "java": ">=17",
+        "fabric-api": "*",
+        "tooltipfix": "*"
+      }
+    },
+    "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca": {
+      "project": "fabric-api",
+      "projectId": "P7dR8mSH",
+      "title": "Fabric API",
+      "downloads": 277481358,
+      "versionId": "rvI2dfzR",
+      "version": "0.92.12+1.20.1",
+      "published": "2026-09-01T10:05:43.493622Z",
+      "source": "https://github.com/FabricMC/fabric",
+      "path": "build/compatibility/downloads/rvI2dfzR/fabric-api-0.92.12+1.20.1.jar",
+      "filename": "fabric-api-0.92.12+1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/rvI2dfzR/fabric-api-0.92.12%2B1.20.1.jar",
+      "sha512": "de9da2344043b3e9ef9fb7dbfff5f2577b06000c4f73f2a37959a80123141169084cece19133bd299b45feaaa4648bdaca2ea085684888cc8c55cc9134a477ca",
+      "modIds": [
+        "fabric-api"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.16.10",
+        "java": ">=17",
+        "minecraft": ">=1.20 <1.20.2-"
+      }
+    },
+    "75d85a093487ddd8c405cf7f8ce83cb3418ff7c2d3e6bf5aa38554d8bcf0ea45c87c88f3463a924e9cc8b5931d8b64f7be173efbd48ea7a0c150db95e1408f51": {
+      "project": "tooltipfix",
+      "projectId": "2RKFTmiB",
+      "title": "ToolTipFix",
+      "downloads": 16781575,
+      "versionId": "B2L4LeMV",
+      "version": "1.1.1-1.20",
+      "published": "2023-06-10T01:55:54.544825Z",
+      "source": "https://github.com/kyrptonaught/tooltipfix",
+      "path": "build/compatibility/downloads/B2L4LeMV/tooltipfix-1.1.1-1.20.jar",
+      "filename": "tooltipfix-1.1.1-1.20.jar",
+      "url": "https://cdn.modrinth.com/data/2RKFTmiB/versions/B2L4LeMV/tooltipfix-1.1.1-1.20.jar",
+      "sha512": "75d85a093487ddd8c405cf7f8ce83cb3418ff7c2d3e6bf5aa38554d8bcf0ea45c87c88f3463a924e9cc8b5931d8b64f7be173efbd48ea7a0c150db95e1408f51",
+      "modIds": [
+        "tooltipfix"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.12.5",
+        "fabric": "*"
+      }
+    },
+    "cc88a257ae31076323026548e82c5cd8ff0ece6c42e6ed29057aea4bf1b29043324134399d525e7cae51f961c27068644567717b0c8785e6d510c594241dbb9a": {
+      "project": "enchantedshulkers",
+      "projectId": "vUi6HFie",
+      "title": "EnchantedShulkers",
+      "downloads": 639510,
+      "versionId": "4YXMZuAk",
+      "version": "1.2.4+1.20.1",
+      "published": "2024-03-04T02:12:36.284398Z",
+      "source": "https://github.com/RubixDev/EnchantedShulkers",
+      "path": "build/compatibility/downloads/4YXMZuAk/enchantedshulkers-mc1.20.1-v1.2.4.jar",
+      "filename": "enchantedshulkers-mc1.20.1-v1.2.4.jar",
+      "url": "https://cdn.modrinth.com/data/vUi6HFie/versions/4YXMZuAk/enchantedshulkers-mc1.20.1-v1.2.4.jar",
+      "sha512": "cc88a257ae31076323026548e82c5cd8ff0ece6c42e6ed29057aea4bf1b29043324134399d525e7cae51f961c27068644567717b0c8785e6d510c594241dbb9a",
+      "modIds": [
+        "enchantedshulkers"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.15.6",
+        "fabric-api": "*",
+        "minecraft": "1.20.x",
+        "fabric-language-kotlin": ">=1.9.6+kotlin.1.8.22"
+      }
+    },
+    "7fb475c4a7e7bdf8d0aca4b5798a58a354c51443d5b1fbde3e8cf34dfbf7191ef4238b5f07d08ec9490ec180b371624523326c3ad45d4ed2b2be541de9407e5d": {
+      "project": "fabric-language-kotlin",
+      "projectId": "Ha28R6CL",
+      "title": "Fabric Language Kotlin",
+      "downloads": 127485155,
+      "versionId": "SKW1BTL3",
+      "version": "1.14.2+kotlin.2.4.21",
+      "published": "2026-10-09T08:17:15.786208Z",
+      "source": "https://github.com/FabricMC/fabric-language-kotlin/",
+      "path": "build/compatibility/downloads/SKW1BTL3/fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar",
+      "filename": "fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar",
+      "url": "https://cdn.modrinth.com/data/Ha28R6CL/versions/SKW1BTL3/fabric-language-kotlin-1.14.2%2Bkotlin.2.4.21.jar",
+      "sha512": "7fb475c4a7e7bdf8d0aca4b5798a58a354c51443d5b1fbde3e8cf34dfbf7191ef4238b5f07d08ec9490ec180b371624523326c3ad45d4ed2b2be541de9407e5d",
+      "modIds": [
+        "fabric-language-kotlin"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.19.5"
+      }
+    },
+    "6735e4078ccef58a631ccf08f70243723d079e25329341817a9863f3edd7c689f05123802e77a1a57fa795f4198aaf72e19cdf7aee6432873d54043890585ba2": {
+      "project": "enchantments-plus",
+      "projectId": "Kfr0BQO9",
+      "title": "Enchantments-Plus",
+      "downloads": 340497,
+      "versionId": "4XJS1jmv",
+      "version": "1.2.2+1.20.1",
+      "published": "2024-05-05T01:43:41.732673Z",
+      "source": "https://github.com/RobertHoueland/enchantments-plus/",
+      "path": "build/compatibility/downloads/4XJS1jmv/enchantments-plus-fabric-1.2.2+1.20.1.jar",
+      "filename": "enchantments-plus-fabric-1.2.2+1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/Kfr0BQO9/versions/4XJS1jmv/enchantments-plus-fabric-1.2.2%2B1.20.1.jar",
+      "sha512": "6735e4078ccef58a631ccf08f70243723d079e25329341817a9863f3edd7c689f05123802e77a1a57fa795f4198aaf72e19cdf7aee6432873d54043890585ba2",
+      "modIds": [
+        "enchantmentsplus"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.14.21",
+        "fabric": "*",
+        "minecraft": "~1.20.1",
+        "java": ">=17",
+        "cloth-config": ">=11.0.99"
+      }
+    },
+    "2da85c071c854223cc30c8e46794391b77e53f28ecdbbde59dc83b3dbbdfc74be9e68da9ed464e7f98b4361033899ba4f681ebff1f35edc2c60e599a59796f1c": {
+      "project": "cloth-config",
+      "projectId": "9s6osm5g",
+      "title": "Cloth Config API",
+      "downloads": 179245518,
+      "versionId": "2xQdCMyG",
+      "version": "11.1.136+fabric",
+      "published": "2024-09-16T17:13:47.844274Z",
+      "source": "https://github.com/shedaniel/ClothConfig/",
+      "path": "build/compatibility/downloads/2xQdCMyG/cloth-config-11.1.136-fabric.jar",
+      "filename": "cloth-config-11.1.136-fabric.jar",
+      "url": "https://cdn.modrinth.com/data/9s6osm5g/versions/2xQdCMyG/cloth-config-11.1.136-fabric.jar",
+      "sha512": "2da85c071c854223cc30c8e46794391b77e53f28ecdbbde59dc83b3dbbdfc74be9e68da9ed464e7f98b4361033899ba4f681ebff1f35edc2c60e599a59796f1c",
+      "modIds": [
+        "cloth-config"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.14.0",
+        "minecraft": ">=1.20-"
+      }
+    },
+    "f7cccb3063d38b1c972bb2b54ef5d42efef4a1e9ee64c6876f124e355e235d7287b00a062bb3161aad16b964624afd8a3ede90a1dda8dd74d0e2b7f0acb73dfe": {
+      "project": "extra-enchantments-and-curses",
+      "projectId": "ybgcuKbF",
+      "title": "Extra Enchantments and Curses",
+      "downloads": 261094,
+      "versionId": "uP0d9ZK8",
+      "version": "1.8.1",
+      "published": "2023-11-15T11:39:11.374295Z",
+      "source": "https://github.com/03-JS/Extra-Enchantments-and-Curses",
+      "path": "build/compatibility/downloads/uP0d9ZK8/Extra-Enchantments-and-Curses-1.8.1.jar",
+      "filename": "Extra-Enchantments-and-Curses-1.8.1.jar",
+      "url": "https://cdn.modrinth.com/data/ybgcuKbF/versions/uP0d9ZK8/Extra-Enchantments-and-Curses-1.8.1.jar",
+      "sha512": "f7cccb3063d38b1c972bb2b54ef5d42efef4a1e9ee64c6876f124e355e235d7287b00a062bb3161aad16b964624afd8a3ede90a1dda8dd74d0e2b7f0acb73dfe",
+      "modIds": [
+        "extra-enchantments-and-curses"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.14.12",
+        "fabric": "*",
+        "minecraft": ">=1.19",
+        "java": ">=17"
+      }
+    },
+    "807e4a3daf493e92c5ff0d5657efbba2a4e0cd2a9b753f2d6f153422629415f189345842a6dd258c87d4c02ebf38950a517bcd8a7ed929af6ed6485ae46cf77e": {
+      "project": "owo-lib",
+      "projectId": "ccKDOlHs",
+      "title": "oωo (owo-lib)",
+      "downloads": 50058283,
+      "versionId": "zyOBB7J4",
+      "version": "0.11.2+1.20",
+      "published": "2023-09-12T10:39:30.503498Z",
+      "source": "https://github.com/glisco03/owo-lib",
+      "path": "build/compatibility/downloads/zyOBB7J4/owo-lib-0.11.2+1.20.jar",
+      "filename": "owo-lib-0.11.2+1.20.jar",
+      "url": "https://cdn.modrinth.com/data/ccKDOlHs/versions/zyOBB7J4/owo-lib-0.11.2%2B1.20.jar",
+      "sha512": "807e4a3daf493e92c5ff0d5657efbba2a4e0cd2a9b753f2d6f153422629415f189345842a6dd258c87d4c02ebf38950a517bcd8a7ed929af6ed6485ae46cf77e",
+      "modIds": [
+        "owo"
+      ],
+      "requirements": {
+        "fabricloader": "*",
+        "fabric": ">=0.76",
+        "minecraft": ">=1.19"
+      }
+    },
+    "6c5288ebbedb1a74c951c2297a2dbe4b3cbc11f5aec6992a4c0e3fc87e443fafb1e374aef6118bdc6d60ae9701525d64d05a304c3d4bfcf330bb182670475288": {
+      "project": "fabric-enchantments",
+      "projectId": "curseforge-498465",
+      "title": "Fabric Enchantments",
+      "versionId": "curseforge-4765940",
+      "version": "1.0.0",
+      "source": "https://www.curseforge.com/minecraft/mc-mods/fabric-enchantments/files/4765940",
+      "path": "build/compatibility/downloads/curseforge-4765940/fabric-enchantments-1.0.0.jar",
+      "filename": "fabric-enchantments-1.0.0.jar",
+      "url": "https://mediafilez.forgecdn.net/files/4765/940/fabric-enchantments-1.0.0.jar",
+      "sha512": "6c5288ebbedb1a74c951c2297a2dbe4b3cbc11f5aec6992a4c0e3fc87e443fafb1e374aef6118bdc6d60ae9701525d64d05a304c3d4bfcf330bb182670475288",
+      "modIds": [
+        "fabricenchantments"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.14.22",
+        "fabric": "*",
+        "minecraft": "1.20.x",
+        "java": ">=17"
+      }
+    },
+    "6b45cac2f6afc7d3d6676842ec74f3cdd4eb8312003dead3656a772d8a3cecc65785737cafe46a7efcce11865d59634c3f5a80809779e59e9a1a4b4f1b49bc17": {
+      "project": "majruszs-enchantments",
+      "projectId": "jJthQvHv",
+      "title": "Majrusz's Enchantments",
+      "downloads": 1021200,
+      "versionId": "9CzONJHC",
+      "version": "1.10.8",
+      "published": "2024-04-26T17:09:02.904891Z",
+      "source": "https://github.com/Majrusz/MajruszsEnchantmentsMod/issues",
+      "path": "build/compatibility/downloads/9CzONJHC/majruszs-enchantments-fabric-1.20.1-1.10.8.jar",
+      "filename": "majruszs-enchantments-fabric-1.20.1-1.10.8.jar",
+      "url": "https://cdn.modrinth.com/data/jJthQvHv/versions/9CzONJHC/majruszs-enchantments-fabric-1.20.1-1.10.8.jar",
+      "sha512": "6b45cac2f6afc7d3d6676842ec74f3cdd4eb8312003dead3656a772d8a3cecc65785737cafe46a7efcce11865d59634c3f5a80809779e59e9a1a4b4f1b49bc17",
+      "modIds": [
+        "majruszsenchantments"
+      ],
+      "requirements": {
+        "fabric": "*",
+        "minecraft": ">=1.20.1",
+        "majruszlibrary": ">=7.0.0"
+      }
+    },
+    "60910be0960c1e384e1f68f4e605c167ac6d23fe7b172a9f9750660f8f94974304cc547de2b4773ea6595ba45932caa619334ab0b4df6ced21f045e6d766180d": {
+      "project": "majrusz-library",
+      "projectId": "PYQD8noM",
+      "title": "Majrusz Library",
+      "downloads": 2185581,
+      "versionId": "nfkUUMHq",
+      "version": "7.0.8",
+      "published": "2024-04-29T19:34:35.099375Z",
+      "source": "https://github.com/Majrusz/MajruszLibrary/issues",
+      "path": "build/compatibility/downloads/nfkUUMHq/majrusz-library-fabric-1.20.1-7.0.8.jar",
+      "filename": "majrusz-library-fabric-1.20.1-7.0.8.jar",
+      "url": "https://cdn.modrinth.com/data/PYQD8noM/versions/nfkUUMHq/majrusz-library-fabric-1.20.1-7.0.8.jar",
+      "sha512": "60910be0960c1e384e1f68f4e605c167ac6d23fe7b172a9f9750660f8f94974304cc547de2b4773ea6595ba45932caa619334ab0b4df6ced21f045e6d766180d",
+      "modIds": [
+        "majruszlibrary"
+      ],
+      "requirements": {
+        "fabric": "*",
+        "minecraft": ">=1.20.1"
+      }
+    },
+    "0ca1979e2b04e2257aba78122416077368bc61b45119821f61a7a8423b0310ce7f9da0754ff5cb700e2c8deee74f9a59dca21c3d3fbcd798bec0e889dda7390e": {
+      "project": "soulbound-enchantment",
+      "projectId": "MmUmcwom",
+      "title": "Soulbound Enchantment",
+      "downloads": 265048,
+      "versionId": "IQZAZB3W",
+      "version": "1.0.0+1.20.1",
+      "published": "2024-07-03T12:25:03.866757Z",
+      "source": null,
+      "path": "build/compatibility/downloads/IQZAZB3W/soulbound-fabric-1.0.0+1.20.1.jar",
+      "filename": "soulbound-fabric-1.0.0+1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/MmUmcwom/versions/IQZAZB3W/soulbound-fabric-1.0.0%2B1.20.1.jar",
+      "sha512": "0ca1979e2b04e2257aba78122416077368bc61b45119821f61a7a8423b0310ce7f9da0754ff5cb700e2c8deee74f9a59dca21c3d3fbcd798bec0e889dda7390e",
+      "modIds": [
+        "soulbound"
+      ],
+      "requirements": {
+        "fabricloader": "*",
+        "fabric": "*",
+        "minecraft": ">=1.20.1",
+        "cloth-config": "*"
+      }
+    },
+    "f6eeb5d5f9cea999f191b99cbff793a2df60f6cb043fef006a30ab1f8661be35e871c7e558aa698d654995e21f2b9a1c3f889eb6a5d7fe1c8595ccb4b9fc2c04": {
+      "project": "vein-mining",
+      "projectId": "bRAPbNyF",
+      "title": "Vein Mining",
+      "downloads": 9532738,
+      "versionId": "PFFXEfYV",
+      "version": "1.5.0+1.20.1",
+      "published": "2024-06-28T03:44:33.045194Z",
+      "source": "https://github.com/illusivesoulworks/veinmining",
+      "path": "build/compatibility/downloads/PFFXEfYV/veinmining-fabric-1.5.0+1.20.1.jar",
+      "filename": "veinmining-fabric-1.5.0+1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/bRAPbNyF/versions/PFFXEfYV/veinmining-fabric-1.5.0%2B1.20.1.jar",
+      "sha512": "f6eeb5d5f9cea999f191b99cbff793a2df60f6cb043fef006a30ab1f8661be35e871c7e558aa698d654995e21f2b9a1c3f889eb6a5d7fe1c8595ccb4b9fc2c04",
+      "modIds": [
+        "veinmining"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.14",
+        "fabric-api": "*",
+        "minecraft": ">=1.20",
+        "java": ">=17"
+      }
+    },
+    "8eb0a0b5ff184ea120b544e57a030a87fdbe0b018ed27e7246da2b3e7f5ca9e518bcbbadc93350435b0133c65e8c55784d928f2fffa15e33e1b7a5f71954a9fe": {
+      "project": "zenith-renewed",
+      "projectId": "GTDFctVr",
+      "title": "Zenith Renewed",
+      "downloads": 452958,
+      "versionId": "T6bH9nd3",
+      "version": "2.0.2",
+      "published": "2026-06-02T19:37:46.086139Z",
+      "source": "https://github.com/Stalemated/ZenithRenewed",
+      "path": "build/compatibility/downloads/T6bH9nd3/zenith_renewed-2.0.2.jar",
+      "filename": "zenith_renewed-2.0.2.jar",
+      "url": "https://cdn.modrinth.com/data/GTDFctVr/versions/T6bH9nd3/zenith_renewed-2.0.2.jar",
+      "sha512": "8eb0a0b5ff184ea120b544e57a030a87fdbe0b018ed27e7246da2b3e7f5ca9e518bcbbadc93350435b0133c65e8c55784d928f2fffa15e33e1b7a5f71954a9fe",
+      "modIds": [
+        "zenith"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.15.7",
+        "fabric": ">=0.92.2+1.20.1",
+        "minecraft": "1.20.1",
+        "java": ">=17",
+        "fakerlib": ">=0.1.5",
+        "zenith_attributes": ">=1.0.2"
+      }
+    },
+    "20eceded16de6936164831f4cf98b464524c5756f64cf4da1dcc1823b21cb7dd5d48cfbd7dc456a0758f38de3dbdd6d03046c8f36ed667ff5574bf54f12353f0": {
+      "project": "fakerlib",
+      "projectId": "ORX9fPw1",
+      "title": "FakerLib",
+      "downloads": 1595543,
+      "versionId": "X6Jnu4kO",
+      "version": "0.1.5",
+      "published": "2025-07-30T02:01:35.564019Z",
+      "source": "https://github.com/TheWinABagel/FakerLib",
+      "path": "build/compatibility/downloads/X6Jnu4kO/fakerlib-0.1.5.jar",
+      "filename": "fakerlib-0.1.5.jar",
+      "url": "https://cdn.modrinth.com/data/ORX9fPw1/versions/X6Jnu4kO/fakerlib-0.1.5.jar",
+      "sha512": "20eceded16de6936164831f4cf98b464524c5756f64cf4da1dcc1823b21cb7dd5d48cfbd7dc456a0758f38de3dbdd6d03046c8f36ed667ff5574bf54f12353f0",
+      "modIds": [
+        "fakerlib"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.15.6",
+        "minecraft": "~1.20.1",
+        "java": ">=17",
+        "fabric-api": ">=0.92.0"
+      }
+    },
+    "b287e86e71865d7bb0caa2b7722c8940f51e72fd2a534e22c22c04dc9536e53137bacaada24f3cfd8a5133d3135bc6b5b235d4a42fb7e84924ca560df00d5c1e": {
+      "project": "patchouli",
+      "projectId": "nU0bVIaL",
+      "title": "Patchouli",
+      "downloads": 36184637,
+      "versionId": "nm6fiGRx",
+      "version": "1.20.1-85-fabric",
+      "published": "2026-03-08T21:08:39.875056Z",
+      "source": "https://github.com/VazkiiMods/Patchouli/",
+      "path": "build/compatibility/downloads/nm6fiGRx/Patchouli-1.20.1-85-FABRIC.jar",
+      "filename": "Patchouli-1.20.1-85-FABRIC.jar",
+      "url": "https://cdn.modrinth.com/data/nU0bVIaL/versions/nm6fiGRx/Patchouli-1.20.1-85-FABRIC.jar",
+      "sha512": "b287e86e71865d7bb0caa2b7722c8940f51e72fd2a534e22c22c04dc9536e53137bacaada24f3cfd8a5133d3135bc6b5b235d4a42fb7e84924ca560df00d5c1e",
+      "modIds": [
+        "patchouli"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.14.21",
+        "fabric": ">=0.87.0",
+        "minecraft": ">=1.20.1 <1.21"
+      }
+    },
+    "d29189798f229b232e554e4060e85aaf0a4d23981860d1548d6e1cd7298e2423a6bbadb78cc5dbfb01e21db0f9e41e391fb60dae9f9dcc23f16aca00bea1350c": {
+      "project": "zenith-attributes-renewed",
+      "projectId": "Ewlys7Si",
+      "title": "Zenith Attributes Renewed",
+      "downloads": 417287,
+      "versionId": "5Y9Dz9Sf",
+      "version": "1.0.3",
+      "published": "2026-04-21T01:53:30.622021Z",
+      "source": "https://github.com/Stalemated/ZenithAttributesRenewed",
+      "path": "build/compatibility/downloads/5Y9Dz9Sf/zenith_attributes_renewed-1.0.3.jar",
+      "filename": "zenith_attributes_renewed-1.0.3.jar",
+      "url": "https://cdn.modrinth.com/data/Ewlys7Si/versions/5Y9Dz9Sf/zenith_attributes_renewed-1.0.3.jar",
+      "sha512": "d29189798f229b232e554e4060e85aaf0a4d23981860d1548d6e1cd7298e2423a6bbadb78cc5dbfb01e21db0f9e41e391fb60dae9f9dcc23f16aca00bea1350c",
+      "modIds": [
+        "zenith_attributes"
+      ],
+      "requirements": {
+        "fabricloader": ">=0.14.22",
+        "minecraft": "~1.20.1",
+        "java": ">=17",
+        "fabric-api": "*",
+        "fakerlib": ">=0.1.3"
+      }
+    },
+    "20d244fcf81b232d9cf917d2ec303e324cdb8a551835fabad8dec549042ad784996cc1caa159e1802a6746eb96371a88864deeed8a0dcc539df5d36978904f13": {
+      "project": "allurement",
+      "projectId": "eIO12l2t",
+      "title": "Allurement",
+      "downloads": 1708867,
+      "versionId": "qc1hOxYD",
+      "version": "4.0.0",
+      "published": "2024-04-01T18:27:21.978558Z",
+      "source": "https://github.com/team-abnormals/allurement",
+      "path": "build/compatibility/downloads/qc1hOxYD/allurement-1.20.1-4.0.0.jar",
+      "filename": "allurement-1.20.1-4.0.0.jar",
+      "url": "https://cdn.modrinth.com/data/eIO12l2t/versions/qc1hOxYD/allurement-1.20.1-4.0.0.jar",
+      "sha512": "20d244fcf81b232d9cf917d2ec303e324cdb8a551835fabad8dec549042ad784996cc1caa159e1802a6746eb96371a88864deeed8a0dcc539df5d36978904f13",
+      "modIds": [
+        "allurement"
+      ],
+      "requirements": {
+        "allurement": [
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47.1.3,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "blueprint",
+            "mandatory": true,
+            "versionRange": "[7.0.1,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "124ec4edbb11f26a49aaa7a60cafeddefef64a0e3641dc6957656f7237ae1f2af848359ffb9c043d20703c35051067cbb285ecf75114ead1688a979b4d302f70": {
+      "project": "blueprint",
+      "projectId": "VsM5EDoI",
+      "title": "Blueprint",
+      "downloads": 7889169,
+      "versionId": "ZQKDh6gd",
+      "version": "7.1.5",
+      "published": "2026-09-07T01:55:05.874415Z",
+      "source": "https://github.com/team-abnormals/blueprint",
+      "path": "build/compatibility/downloads/ZQKDh6gd/blueprint-1.20.1-7.1.5.jar",
+      "filename": "blueprint-1.20.1-7.1.5.jar",
+      "url": "https://cdn.modrinth.com/data/VsM5EDoI/versions/ZQKDh6gd/blueprint-1.20.1-7.1.5.jar",
+      "sha512": "124ec4edbb11f26a49aaa7a60cafeddefef64a0e3641dc6957656f7237ae1f2af848359ffb9c043d20703c35051067cbb285ecf75114ead1688a979b4d302f70",
+      "modIds": [
+        "blueprint"
+      ],
+      "requirements": {
+        "blueprint": [
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.20.2)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47.1.3,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "40709a506f96e407d0d34f07e38916bd7238b2b56d54e806063fcc99ccc9fd97d8913afa57c5edfe58f71e2ea5f67c07510a8b5130cb8d9e16e7142b18e4a96c": {
+      "project": "apotheosis",
+      "projectId": "rqFWfVlz",
+      "title": "Apotheosis",
+      "downloads": 353826,
+      "versionId": "tT3CLYvK",
+      "version": "7.4.8",
+      "published": "2026-06-19T01:40:39.699511Z",
+      "source": "https://github.com/Shadows-of-Fire/Apotheosis",
+      "path": "build/compatibility/downloads/tT3CLYvK/Apotheosis-1.20.1-7.4.8.jar",
+      "filename": "Apotheosis-1.20.1-7.4.8.jar",
+      "url": "https://cdn.modrinth.com/data/rqFWfVlz/versions/tT3CLYvK/Apotheosis-1.20.1-7.4.8.jar",
+      "sha512": "40709a506f96e407d0d34f07e38916bd7238b2b56d54e806063fcc99ccc9fd97d8913afa57c5edfe58f71e2ea5f67c07510a8b5130cb8d9e16e7142b18e4a96c",
+      "modIds": [
+        "apotheosis"
+      ],
+      "requirements": {
+        "apotheosis": [
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "placebo",
+            "mandatory": true,
+            "versionRange": "[8.6.2,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "attributeslib",
+            "mandatory": true,
+            "versionRange": "[1.3.5,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "15aedda4efcc553d5e3c83aa867b62554bc2fab298b43f55ed324e10507a3605f0ec2c59c01476e6d80b2a49275ef080142e43a6e663f9463b62f520960fc203": {
+      "project": "patchouli",
+      "projectId": "nU0bVIaL",
+      "title": "Patchouli",
+      "downloads": 36184637,
+      "versionId": "94dtOLgZ",
+      "version": "1.20.1-85-forge",
+      "published": "2026-03-08T21:08:41.512166Z",
+      "source": "https://github.com/VazkiiMods/Patchouli/",
+      "path": "build/compatibility/downloads/94dtOLgZ/Patchouli-1.20.1-85-FORGE.jar",
+      "filename": "Patchouli-1.20.1-85-FORGE.jar",
+      "url": "https://cdn.modrinth.com/data/nU0bVIaL/versions/94dtOLgZ/Patchouli-1.20.1-85-FORGE.jar",
+      "sha512": "15aedda4efcc553d5e3c83aa867b62554bc2fab298b43f55ed324e10507a3605f0ec2c59c01476e6d80b2a49275ef080142e43a6e663f9463b62f520960fc203",
+      "modIds": [
+        "patchouli"
+      ],
+      "requirements": {
+        "patchouli": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47.1.3,)"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)"
+          }
+        ]
+      }
+    },
+    "d0b7a9dac9e0d34cdec49afd9a3c9f5382dcfac69b18a7c7a600d4537cf2653368a00333389c8e7c9fdacf952e0e4f921464309e257a3dd992f1ba26f4ce6836": {
+      "project": "apothic-attributes",
+      "projectId": "DGaH8Rh0",
+      "title": "Apothic Attributes",
+      "downloads": 362377,
+      "versionId": "fwL9CWGd",
+      "version": "1.3.7",
+      "published": "2026-06-19T01:41:34.129141Z",
+      "source": "https://github.com/Shadows-of-Fire/Apothic-Attributes",
+      "path": "build/compatibility/downloads/fwL9CWGd/ApothicAttributes-1.20.1-1.3.7.jar",
+      "filename": "ApothicAttributes-1.20.1-1.3.7.jar",
+      "url": "https://cdn.modrinth.com/data/DGaH8Rh0/versions/fwL9CWGd/ApothicAttributes-1.20.1-1.3.7.jar",
+      "sha512": "d0b7a9dac9e0d34cdec49afd9a3c9f5382dcfac69b18a7c7a600d4537cf2653368a00333389c8e7c9fdacf952e0e4f921464309e257a3dd992f1ba26f4ce6836",
+      "modIds": [
+        "attributeslib"
+      ],
+      "requirements": {
+        "attributeslib": [
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "placebo",
+            "mandatory": true,
+            "versionRange": "[8.6.0,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "c23990465e26336f476c3b05a897bcf0c8660ae7338756b325f6bf81d0dee34b609474c62293f394acac818637ab03f92c776d104c8b8e86f3786395f5c4d623": {
+      "project": "placebo",
+      "projectId": "tCkE8p2N",
+      "title": "Placebo",
+      "downloads": 1599408,
+      "versionId": "6SkuAGoz",
+      "version": "8.6.3",
+      "published": "2026-06-14T08:31:50.827163Z",
+      "source": "https://github.com/Shadows-of-Fire/Placebo",
+      "path": "build/compatibility/downloads/6SkuAGoz/Placebo-1.20.1-8.6.3.jar",
+      "filename": "Placebo-1.20.1-8.6.3.jar",
+      "url": "https://cdn.modrinth.com/data/tCkE8p2N/versions/6SkuAGoz/Placebo-1.20.1-8.6.3.jar",
+      "sha512": "c23990465e26336f476c3b05a897bcf0c8660ae7338756b325f6bf81d0dee34b609474c62293f394acac818637ab03f92c776d104c8b8e86f3786395f5c4d623",
+      "modIds": [
+        "placebo"
+      ],
+      "requirements": {
+        "placebo": [
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "fb96c303eb59112af87bc1e2b4eeea5b4c5def0752ef8f3c64127c6f55e34532ed9380f1e94870e3f7b330e6f092ac93dfcd7a62e1fb8dfe904df0348492da59": {
+      "project": "enchanted-arsenal",
+      "projectId": "iFRF5kc2",
+      "title": "[TACZ]Enchanted Arsenal",
+      "downloads": 7241604,
+      "versionId": "Lob7MI5r",
+      "version": "1.0.1",
+      "published": "2024-09-28T21:13:51.609198Z",
+      "source": null,
+      "path": "build/compatibility/downloads/Lob7MI5r/enchanted_arsenal-1.0.1-forge-1.20.1.jar",
+      "filename": "enchanted_arsenal-1.0.1-forge-1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/iFRF5kc2/versions/Lob7MI5r/enchanted_arsenal-1.0.1-forge-1.20.1.jar",
+      "sha512": "fb96c303eb59112af87bc1e2b4eeea5b4c5def0752ef8f3c64127c6f55e34532ed9380f1e94870e3f7b330e6f092ac93dfcd7a62e1fb8dfe904df0348492da59",
+      "modIds": [
+        "enchanted_arsenal"
+      ],
+      "requirements": {
+        "enchanted_arsenal": [
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "fa8b4bd4a7a0835092bccbb28a18461642d4e7a2f6fdb762ac4978d4dbc31d1f0f61c685343a61607dce3d1cd89f4314b61a9f8811960b9d0604692ac3fff96d": {
+      "project": "timeless-and-classics-zero",
+      "projectId": "SzzJttH8",
+      "title": "[TaCZ] Timeless and Classics Zero",
+      "downloads": 32257103,
+      "versionId": "AzCBJlex",
+      "version": "1.1.8-hotfix2",
+      "published": "2026-10-02T14:06:08.470665Z",
+      "source": "https://github.com/MCModderAnchor/TACZ",
+      "path": "build/compatibility/downloads/AzCBJlex/tacz-1.20.1-1.1.8-hotfix2.jar",
+      "filename": "tacz-1.20.1-1.1.8-hotfix2.jar",
+      "url": "https://cdn.modrinth.com/data/SzzJttH8/versions/AzCBJlex/tacz-1.20.1-1.1.8-hotfix2.jar",
+      "sha512": "fa8b4bd4a7a0835092bccbb28a18461642d4e7a2f6fdb762ac4978d4dbc31d1f0f61c685343a61607dce3d1cd89f4314b61a9f8811960b9d0604692ac3fff96d",
+      "modIds": [
+        "tacz"
+      ],
+      "requirements": {
+        "tacz": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[46,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20,1.20.2)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "shouldersurfing",
+            "mandatory": false,
+            "versionRange": "[1.20.1-4.0.0,)",
+            "ordering": "NONE",
+            "side": "CLIENT"
+          }
+        ]
+      }
+    },
+    "83548db81b6099fa0ebe51bea556ed04d0a7c72f320360703235206fffb0c2616ee182146bd12ec63229e40007a35dc4b910ddf714d9461858a8811843ca8fb6": {
+      "project": "ensorcellation",
+      "projectId": "ImlP9deQ",
+      "title": "Ensorcellation",
+      "downloads": 194298,
+      "versionId": "VY1IIRi6",
+      "version": "5.0.2",
+      "published": "2024-06-15T03:27:09.754478Z",
+      "source": null,
+      "path": "build/compatibility/downloads/VY1IIRi6/ensorcellation-1.20.1-5.0.2.24.jar",
+      "filename": "ensorcellation-1.20.1-5.0.2.24.jar",
+      "url": "https://cdn.modrinth.com/data/ImlP9deQ/versions/VY1IIRi6/ensorcellation-1.20.1-5.0.2.24.jar",
+      "sha512": "83548db81b6099fa0ebe51bea556ed04d0a7c72f320360703235206fffb0c2616ee182146bd12ec63229e40007a35dc4b910ddf714d9461858a8811843ca8fb6",
+      "modIds": [
+        "ensorcellation"
+      ],
+      "requirements": {
+        "ensorcellation": [
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "1.20.1",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47.1.3,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "cofh_core",
+            "mandatory": true,
+            "versionRange": "[11.0.1,11.1.0)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "5a62bc6dcaaf3cf77234f3e0559eb6d2ec7db05b39feeba56dbdd46f3378aec6d97bd2078e220fe33891384abc40e1a705affe9d77ae4e35cf60185e07c11a73": {
+      "project": "cofh-core",
+      "projectId": "OWSRM4vD",
+      "title": "CoFH Core",
+      "downloads": 2241580,
+      "versionId": "kglS53Hd",
+      "version": "11.0.2",
+      "published": "2024-05-26T17:49:13.711693Z",
+      "source": null,
+      "path": "build/compatibility/downloads/kglS53Hd/cofh_core-1.20.1-11.0.2.56.jar",
+      "filename": "cofh_core-1.20.1-11.0.2.56.jar",
+      "url": "https://cdn.modrinth.com/data/OWSRM4vD/versions/kglS53Hd/cofh_core-1.20.1-11.0.2.56.jar",
+      "sha512": "5a62bc6dcaaf3cf77234f3e0559eb6d2ec7db05b39feeba56dbdd46f3378aec6d97bd2078e220fe33891384abc40e1a705affe9d77ae4e35cf60185e07c11a73",
+      "modIds": [
+        "cofh_core"
+      ],
+      "requirements": {
+        "cofh_core": [
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "1.20.1",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47.1.3,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "2a47b10d911a614661d9cb5503b126689dde27703682f80b3745e507db2cdeb30be25e2499026857444224a39b226fd7643a9fba34773b8c882ac4f2f75cef7e": {
+      "project": "extra-enchantments-and-curses",
+      "projectId": "ybgcuKbF",
+      "title": "Extra Enchantments and Curses",
+      "downloads": 261094,
+      "versionId": "GEce1syN",
+      "version": "1.7.2",
+      "published": "2023-11-15T11:36:33.996795Z",
+      "source": "https://github.com/03-JS/Extra-Enchantments-and-Curses",
+      "path": "build/compatibility/downloads/GEce1syN/extra_enchantments-1.20.1-1.7.2.jar",
+      "filename": "extra_enchantments-1.20.1-1.7.2.jar",
+      "url": "https://cdn.modrinth.com/data/ybgcuKbF/versions/GEce1syN/extra_enchantments-1.20.1-1.7.2.jar",
+      "sha512": "2a47b10d911a614661d9cb5503b126689dde27703682f80b3745e507db2cdeb30be25e2499026857444224a39b226fd7643a9fba34773b8c882ac4f2f75cef7e",
+      "modIds": [
+        "extra_enchantments"
+      ],
+      "requirements": {
+        "extra_enchantments": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "f9d1bea88116508e97c9dca01fd91b9285220345291c6481d203a3fc3ea2f41ebba9a040315781c4b1c42718a16a53624cff8cf387fcd2fbf6e7c0c6fb8fceb8": {
+      "project": "majruszs-enchantments",
+      "projectId": "jJthQvHv",
+      "title": "Majrusz's Enchantments",
+      "downloads": 1021200,
+      "versionId": "Pk7dUGrq",
+      "version": "1.10.8",
+      "published": "2024-04-26T21:19:03.179108Z",
+      "source": "https://github.com/Majrusz/MajruszsEnchantmentsMod/issues",
+      "path": "build/compatibility/downloads/Pk7dUGrq/majruszs-enchantments-forge-1.20.1-1.10.8.jar",
+      "filename": "majruszs-enchantments-forge-1.20.1-1.10.8.jar",
+      "url": "https://cdn.modrinth.com/data/jJthQvHv/versions/Pk7dUGrq/majruszs-enchantments-forge-1.20.1-1.10.8.jar",
+      "sha512": "f9d1bea88116508e97c9dca01fd91b9285220345291c6481d203a3fc3ea2f41ebba9a040315781c4b1c42718a16a53624cff8cf387fcd2fbf6e7c0c6fb8fceb8",
+      "modIds": [
+        "majruszsenchantments"
+      ],
+      "requirements": {
+        "majruszsenchantments": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47.1,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "majruszlibrary",
+            "mandatory": true,
+            "versionRange": "[7.0.0,8.0.0)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "fd2bc331ebd9915465f8aa0dca64241c3523d30c8f3178a5498f35aa8429c588e064b62ddd91a83da511ad4c6b302681b04974fb188132a13f24142d47738987": {
+      "project": "majrusz-library",
+      "projectId": "PYQD8noM",
+      "title": "Majrusz Library",
+      "downloads": 2185581,
+      "versionId": "O67H6VJD",
+      "version": "7.0.8",
+      "published": "2024-04-29T20:47:45.528150Z",
+      "source": "https://github.com/Majrusz/MajruszLibrary/issues",
+      "path": "build/compatibility/downloads/O67H6VJD/majrusz-library-neoforge-1.20.1-7.0.8.jar",
+      "filename": "majrusz-library-neoforge-1.20.1-7.0.8.jar",
+      "url": "https://cdn.modrinth.com/data/PYQD8noM/versions/O67H6VJD/majrusz-library-neoforge-1.20.1-7.0.8.jar",
+      "sha512": "fd2bc331ebd9915465f8aa0dca64241c3523d30c8f3178a5498f35aa8429c588e064b62ddd91a83da511ad4c6b302681b04974fb188132a13f24142d47738987",
+      "modIds": [
+        "majruszlibrary"
+      ],
+      "requirements": {
+        "majruszlibrary": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "1.20.1-47.1.76",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "ed68d4da10d7ecd8243559a5dc716de6e2b4d5039904a21b099eb7e567ef250d22263cb3f9d4d43489a2a31a127acf95c53c73b2e52bfacd2055d96446711d3e": {
+      "project": "soulbound-enchantment",
+      "projectId": "MmUmcwom",
+      "title": "Soulbound Enchantment",
+      "downloads": 265048,
+      "versionId": "MYm9H9e4",
+      "version": "1.0.0",
+      "published": "2024-07-26T16:32:46.461495Z",
+      "source": null,
+      "path": "build/compatibility/downloads/MYm9H9e4/soulbound-forge-1.0.0+1.20.1.jar",
+      "filename": "soulbound-forge-1.0.0+1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/MmUmcwom/versions/MYm9H9e4/soulbound-forge-1.0.0%2B1.20.1.jar",
+      "sha512": "ed68d4da10d7ecd8243559a5dc716de6e2b4d5039904a21b099eb7e567ef250d22263cb3f9d4d43489a2a31a127acf95c53c73b2e52bfacd2055d96446711d3e",
+      "modIds": [
+        "soulbound"
+      ],
+      "requirements": {
+        "soulbound": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "361a50a622994d8adff1d2aa9e9282e31f037da46563deac9127ca02e3c9d7c8f1b45d36566e37752846d54e6da5a84f3050bb7bd5e240bfa39149d4cf663482": {
+      "project": "tacz-bullet-proof-enchant-add-on",
+      "projectId": "xLHm9KvS",
+      "title": "TACZ Bullet Proof Enchant Add-on",
+      "downloads": 544194,
+      "versionId": "JvGQ9Wcu",
+      "version": "2.0-1.20.1",
+      "published": "2026-07-16T23:52:27.961923Z",
+      "source": "https://github.com/Zwachinabottle/BulletProofEnchantment/tree/main",
+      "path": "build/compatibility/downloads/JvGQ9Wcu/bulletarmorenchant-2.0-1.20.1.jar",
+      "filename": "bulletarmorenchant-2.0-1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/xLHm9KvS/versions/JvGQ9Wcu/bulletarmorenchant-2.0-1.20.1.jar",
+      "sha512": "361a50a622994d8adff1d2aa9e9282e31f037da46563deac9127ca02e3c9d7c8f1b45d36566e37752846d54e6da5a84f3050bb7bd5e240bfa39149d4cf663482",
+      "modIds": [
+        "bulletarmorenchant"
+      ],
+      "requirements": {
+        "bulletarmorenchant": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    "6a5423885a35b2c28561f28bd12e3f03b52c296bc1f4d050cd03a4b5485e0cdc90b3ac8bff0880353436af061f16a7342dc197a95ee28e88cc76c770341151fa": {
+      "project": "vein-mining",
+      "projectId": "bRAPbNyF",
+      "title": "Vein Mining",
+      "downloads": 9532738,
+      "versionId": "qV4B4EMI",
+      "version": "1.5.0+1.20.1",
+      "published": "2024-06-28T03:44:46.557061Z",
+      "source": "https://github.com/illusivesoulworks/veinmining",
+      "path": "build/compatibility/downloads/qV4B4EMI/veinmining-forge-1.5.0+1.20.1.jar",
+      "filename": "veinmining-forge-1.5.0+1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/bRAPbNyF/versions/qV4B4EMI/veinmining-forge-1.5.0%2B1.20.1.jar",
+      "sha512": "6a5423885a35b2c28561f28bd12e3f03b52c296bc1f4d050cd03a4b5485e0cdc90b3ac8bff0880353436af061f16a7342dc197a95ee28e88cc76c770341151fa",
+      "modIds": [
+        "veinmining"
+      ],
+      "requirements": {
+        "veinmining": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[46,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    }
+  }
+}
